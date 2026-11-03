@@ -1307,8 +1307,8 @@ html.phone #app[data-screen=over],html.phone #app[data-screen=win]{gap:6px}
 .credits.out{opacity:0}
 .crimg{width:min(62vw,52vh*0.667,420px);aspect-ratio:2/3;overflow:hidden;opacity:0;animation:crin 3.2s ease .4s forwards;box-shadow:0 0 80px rgba(241,229,202,.08);border-radius:4px}
 .crimg img,.crimg canvas{width:100%;height:100%;object-fit:cover;display:block}
-.crtx{margin:0;text-align:center;font-family:var(--f-serif);font-weight:400;font-size:15px;letter-spacing:.3em;color:rgba(241,229,202,.82);opacity:0;animation:crin 3.2s ease .4s forwards;display:flex;flex-direction:column;gap:8px}
-.crtx span{font-size:12px;letter-spacing:.25em;color:rgba(241,229,202,.55)}
+.crtx{position:absolute;right:max(20px,env(safe-area-inset-right));bottom:max(16px,env(safe-area-inset-bottom));margin:0;text-align:right;white-space:nowrap;font-family:var(--f-serif);font-weight:400;font-size:12px;letter-spacing:.12em;color:rgba(241,229,202,.6);opacity:0;animation:crin 3.2s ease .4s forwards}
+.crtx span{margin-left:.6em;color:rgba(241,229,202,.45)}
 @keyframes crin{to{opacity:1}}
 @keyframes crzoom{from{transform:scale(1.06)}to{transform:scale(1)}}
 @media (prefers-reduced-motion:reduce){.crimg,.crtx{animation:none;opacity:1}.crimg img{animation:none}}
