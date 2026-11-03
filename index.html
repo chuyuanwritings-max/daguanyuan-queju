@@ -1171,7 +1171,233 @@ html.phone .pstory summary{cursor:pointer;color:var(--lore);font-family:var(--f-
 html.phone .pstory[open]{display:flex;flex-direction:column;gap:10px}
 html.phone .fseg.turn p{font-size:15px}
 html.phone .fcard.wide .fimg{aspect-ratio:auto!important;height:min(52vh,460px)}
+
+/* ===== 2.25 名号、成就、解锁、转发、无限 ===== */
+html:has(#app[data-screen=name]) #tut{display:none}
+.ngate{display:flex;flex-direction:column;gap:16px;align-items:stretch;max-width:520px;margin:0 auto}
+.ngate .title-art{max-height:34vh;overflow:hidden}
+.ncard{background:var(--panel);border:2px solid var(--ink);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:10px;text-align:center}
+.ncard h3{margin:0;font-family:var(--f-serif);font-weight:900;font-size:22px;color:var(--ivory)}
+#nameInput{font:inherit;font-size:20px;text-align:center;padding:.6em .8em;border:2px solid var(--ink);border-radius:10px;background:#f3e6c8;color:#2a1d12;width:100%;box-sizing:border-box}
+#nameInput:focus{outline:3px solid var(--gold);outline-offset:2px}
+.ncard .btn{min-height:50px;font-size:18px;min-width:140px}
+.tcard.locked{filter:grayscale(.85) brightness(.75);position:relative}
+.tcard.locked .tlock{position:absolute;inset:auto 6px 6px 6px;background:rgba(13,11,9,.88);border:1px solid #8a6a2c;border-radius:8px;padding:6px 8px;color:#f2c14e;font-size:11.5px;line-height:1.45;display:flex;gap:6px;align-items:flex-start;text-align:left;filter:none}
+.ccard.locked{filter:grayscale(.8);opacity:.8}
+.ccard.locked .art{position:relative}
+.clock{position:absolute;inset:0;z-index:3;background:rgba(13,11,9,.72);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:10px;text-align:center;color:#f2c14e}
+.clock b{font-family:var(--f-serif);font-size:16px}.clock span{font-size:12px;line-height:1.5;color:#f1e5ca}
+.card.achv{width:min(720px,100%);max-height:100%;overflow:auto;display:flex;flex-direction:column;gap:12px}
+.achh{display:flex;align-items:center;gap:10px}.achh h3{margin:0}.achh .small{flex:1;color:var(--muted)}
+.recs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.rtile{position:relative;background:rgba(0,0,0,.28);border:1.5px solid rgba(212,168,77,.35);border-radius:12px;padding:8px 10px 10px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.rtile small{font-size:11.5px;color:var(--muted)}
+.rtile b{font-family:var(--f-serif);font-weight:900;font-size:22px;color:var(--c-gold);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rtile span{font-size:11.5px;color:#c9bfa8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.rtile .pshare{position:absolute;right:6px;top:6px;font-size:12px;padding:2px 10px;min-height:28px}
+.tracks{display:flex;flex-direction:column;gap:10px}
+.track .trh{display:flex;align-items:baseline;gap:8px;margin-bottom:4px}
+.track .trh b{font-family:var(--f-serif);font-size:16px;color:var(--ivory)}
+.track .trh small{font-size:11.5px;color:var(--muted)}.track .trh em{font-style:normal;color:var(--ivory)}
+.tiers{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.acard2{--c:#6b6258;font:inherit;text-align:center;border-radius:10px;padding:6px 4px 7px;background:#1a1612;border:1.5px solid #3a3128;color:#7d7466;display:flex;flex-direction:column;align-items:center;gap:2px;min-width:0;cursor:default}
+.acard2 .medal{font-style:normal;font-size:11px;font-weight:900;padding:0 7px;border-radius:9px;border:1.5px solid currentColor;line-height:16px}
+.acard2 b{font-size:12.5px;line-height:1.3}
+.acard2 .rw{font-size:10.5px;line-height:1.35;display:flex;gap:2px;align-items:flex-start;justify-content:center}
+.acard2 .rw svg{width:11px;height:11px;flex:none;margin-top:2px}
+.acard2.lit{cursor:pointer;color:var(--text);border-color:var(--c);background:linear-gradient(180deg,color-mix(in srgb,var(--c) 22%,#1a1612),#1a1612);box-shadow:0 0 10px color-mix(in srgb,var(--c) 40%,transparent)}
+.acard2.lit .medal{color:#1a120c;background:var(--c);border-color:var(--c)}
+.t-cu{--c:#c98a4f}.t-ag{--c:#d5dde2}.t-au{--c:#f2c14e}.t-pt{--c:#9fe8e0}
+.acard2.lit.t-pt{animation:ptshine 2.4s ease-in-out infinite}
+@keyframes ptshine{50%{box-shadow:0 0 18px rgba(159,232,224,.75)}}
+.medal.t-cu,.medal.t-ag,.medal.t-au,.medal.t-pt{font-style:normal;font-size:11px;font-weight:900;padding:0 7px;border-radius:9px;background:var(--c);color:#1a120c;margin-right:6px}
+.card.sharecard{width:min(460px,100%);max-height:100%;overflow:auto;display:flex;flex-direction:column;gap:10px;align-items:center}
+.shareimg{width:min(320px,80%);border-radius:10px;border:2px solid #0d0b09;box-shadow:0 6px 20px rgba(0,0,0,.6);-webkit-touch-callout:default}
+.sharetx{margin:0;font-size:13px;line-height:1.6;color:#d9d2c2;white-space:pre-line;text-align:center;user-select:text;-webkit-user-select:text}
+a.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+.endshare{flex-wrap:wrap}
+.card.newach{margin:8px auto;width:min(560px,100%)}
+.newach ul{margin:6px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+.newach small{color:var(--muted)}
+/* ===== 2.25 手机：所有屏都一屏放下 ===== */
+html.phone #app[data-screen=shop]{max-width:560px;height:100vh;height:100dvh;box-sizing:border-box;padding:env(safe-area-inset-top) 0 0;display:flex;flex-direction:column;overflow:hidden}
+html.phone .pshop{flex:1;min-height:0;display:flex;flex-direction:column;gap:6px}
+html.phone .pshop .ptop{padding-bottom:2px}
+.pmoney small{font-size:11px;color:#a9b1ad;font-weight:400}
+.psec{display:flex;align-items:baseline;gap:8px;padding:0 12px;min-width:0}
+.psec b{font-family:var(--f-serif);font-size:14px;color:var(--ivory);flex:none}
+.psec small{font-size:10.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.phone #app[data-screen=shop] .pshop .offers{display:grid;grid-template-columns:repeat(var(--n,3),minmax(0,1fr));gap:6px;padding:0 10px}
+html.phone .pshop .tcard{padding:0 5px 6px;gap:3px;height:100%;box-sizing:border-box}
+html.phone .pshop .tban{margin:0 -5px 1px;padding:4px 2px 5px;font-size:13px;letter-spacing:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+html.phone .pshop .tframe{width:58%;max-width:64px;padding:9%}
+html.phone .pshop .tframe:has(img){padding:7%}
+html.phone .pshop .tcard.cons .tframe,html.phone .pshop .tcard.ying .tframe{width:44%}
+html.phone .pshop .tglyph{font-size:22px!important}
+html.phone .pshop .tkind{font-size:9.5px;letter-spacing:0;line-height:1.25}
+html.phone .pshop .teff{font-size:11.5px;line-height:1.42;min-height:0;flex:1}
+html.phone .pshop .tflav,html.phone .pshop .tline,html.phone .pshop .tgrow{display:none}
+html.phone .pshop .tcard .btn{font-size:13px;padding:5px 2px;margin-top:2px;min-height:34px}
+html.phone .pshop .pmini .teff{font-size:11px}
+html.phone .pshopbar{margin-top:auto;display:flex;gap:8px;padding:8px 10px calc(8px + env(safe-area-inset-bottom));background:linear-gradient(180deg,rgba(15,11,8,0),#0f0b08 30%)}
+html.phone .pshopbar .btn{flex:1;min-height:50px;font-size:15px;padding:0 6px}
+html.phone .pshopbar .btn.red{flex:1.6;font-size:18px}
+html.phone .pempty{grid-column:1/-1;text-align:center}
+@media (max-height:620px){
+  html.phone .pshop .tframe{max-width:46px}
+  html.phone .pshop .teff{font-size:10.5px}
+  html.phone .psec small{display:none}
+  html.phone .pshopbar .btn{min-height:44px}
+}
+/* 选人 / 结算 / 命运 / 判词 / 结局：手机上固定一屏 */
+html.phone #app[data-screen=select],html.phone #app[data-screen=result],html.phone #app[data-screen=fate],html.phone #app[data-screen=verdict],html.phone #app[data-screen=over],html.phone #app[data-screen=win],html.phone #app[data-screen=title],html.phone #app[data-screen=name]{max-width:560px;height:100vh;height:100dvh;box-sizing:border-box;padding:calc(6px + env(safe-area-inset-top)) 10px 0;display:flex;flex-direction:column;gap:8px;overflow:hidden}
+html.phone #app[data-screen=select] .h2{flex:none;margin:2px 0}
+html.phone #app[data-screen=select] .chars{flex:1;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:8px}
+html.phone #app[data-screen=select] .ccard{display:flex;flex-direction:column;min-height:0;overflow:hidden}
+html.phone #app[data-screen=select] .ccard .art{flex:1;min-height:0;aspect-ratio:auto!important}
+html.phone #app[data-screen=select] .ccard .art img{height:100%;object-fit:cover}
+html.phone #app[data-screen=select] .ccard .body{flex:none;padding:6px 8px 8px;gap:2px}
+html.phone #app[data-screen=select] .ccard .body p{font-size:11.5px;line-height:1.45;margin:0}
+html.phone #app[data-screen=select] .ccard .skill{font-size:13px}
+html.phone #app[data-screen=select] .ccard .sub{font-size:11px}
+html.phone #app[data-screen=select]>.row.center:last-child{position:static;margin:0 -10px;flex:none}
+html.phone #app[data-screen=result]{justify-content:center}
+html.phone #app[data-screen=result] .card.result{flex:1;min-height:0;max-height:100%;overflow:auto;display:flex;flex-direction:column;gap:6px;padding:12px 14px 0;margin:0 0 4px}
+html.phone #app[data-screen=result] .total{font-size:44px}
+html.phone #app[data-screen=result] .resay{flex:none}
+html.phone #app[data-screen=result] .resay .meimg{width:56px}
+html.phone #app[data-screen=result] .card.result>.row.center:last-child{margin-top:auto}
+html.phone #app[data-screen=fate] .fate{flex:1;min-height:0;display:flex;flex-direction:column}
+html.phone #app[data-screen=fate] .fcard.wide{flex:1;min-height:0;display:flex!important;flex-direction:column;overflow:hidden}
+html.phone #app[data-screen=fate] .fcard.wide .fimg{height:30vh;flex:none}
+html.phone #app[data-screen=fate] .fbody{flex:1;min-height:0;overflow:auto;padding:10px 14px}
+html.phone #app[data-screen=fate]>.row.center:last-child{position:static;margin:0 -10px;flex:none}
+html.phone #app[data-screen=verdict] .vwrap{flex:1;min-height:0;overflow:auto}
+html.phone #app[data-screen=over],html.phone #app[data-screen=win]{overflow:auto}
+html.phone #app[data-screen=over] .title-art,html.phone #app[data-screen=win] .title-art{max-height:22vh;overflow:hidden;flex:none}
+html.phone #app[data-screen=title] .title-art{flex:none}
+html.phone #app[data-screen=title] .lede{font-size:13px;margin:0}
+
+html.phone .pshop{gap:4px}
+html.phone .pshop .ptop .pbar1{height:40px}
+html.phone .pshop .prelic .slot{max-width:40px}
+html.phone .pshop .prelic .cslot{height:40px}
+html.phone #app[data-screen=shop] .pshop .offers[style*="--n:4"] .teff{font-size:10.5px}
+html.phone #app[data-screen=shop] .pshop .offers[style*="--n:4"] .tban{font-size:12px}
+.clock svg{width:30px;height:30px}
+/* 结局页：手机一屏 */
+html.phone #app[data-screen=over] .title-art,html.phone #app[data-screen=win] .title-art{max-height:15vh}
+html.phone #app[data-screen=over] .panel,html.phone #app[data-screen=win] .panel{font-size:12.5px;padding:8px 12px;gap:2px;flex:none}
+html.phone #app[data-screen=over] .card.lbend,html.phone #app[data-screen=win] .card.lbend{margin:0;padding:10px 12px;gap:6px;flex:none}
+html.phone .lbend h3{font-size:16px;margin:0}
+html.phone .lbend .lbstat b{font-size:16px}
+html.phone .lbend .lbstat div{padding:4px}
+html.phone .lbend .small{margin:0;font-size:11.5px}
+html.phone .lbend .row.center{margin:0;gap:6px}
+html.phone .lbend .btn{min-height:40px;padding:0 10px;font-size:14px}
+html.phone #app[data-screen=over] .row.center,html.phone #app[data-screen=win] .row.center{gap:6px;margin:0;flex:none}
+html.phone #app[data-screen=over] .row.center .btn,html.phone #app[data-screen=win] .row.center .btn{min-height:44px;padding:0 12px;font-size:14.5px}
+html.phone #app[data-screen=over] .card.newach,html.phone #app[data-screen=win] .card.newach{margin:0;padding:8px 12px;font-size:12px;flex:none}
+html.phone .newach ul{font-size:12px;gap:2px}
+html.phone #app[data-screen=over],html.phone #app[data-screen=win]{gap:6px}
+
+/* 通关后的制作者名单 */
+#app[data-screen=credits]{max-width:none;height:100vh;height:100dvh;padding:0;overflow:hidden}
+.credits{position:fixed;inset:0;z-index:60;background:#000;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;cursor:pointer;transition:opacity 2s ease}
+.credits.out{opacity:0}
+.crimg{width:min(62vw,52vh*0.667,420px);aspect-ratio:2/3;overflow:hidden;opacity:0;animation:crin 3.2s ease .4s forwards;box-shadow:0 0 80px rgba(241,229,202,.08);border-radius:4px}
+.crimg img,.crimg canvas{width:100%;height:100%;object-fit:cover;display:block}
+.crtx{margin:0;text-align:center;font-family:var(--f-serif);font-weight:400;font-size:15px;letter-spacing:.3em;color:rgba(241,229,202,.82);opacity:0;animation:crin 3.2s ease .4s forwards;display:flex;flex-direction:column;gap:8px}
+.crtx span{font-size:12px;letter-spacing:.25em;color:rgba(241,229,202,.55)}
+@keyframes crin{to{opacity:1}}
+@keyframes crzoom{from{transform:scale(1.06)}to{transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){.crimg,.crtx{animation:none;opacity:1}.crimg img{animation:none}}
+
+/* ===== 2.25 计分爽感：触发卡、分档、发热、火花 ===== */
+.callout{position:fixed;z-index:65;transform:translate(-50%,-100%) scale(.6);opacity:0;pointer-events:none;display:flex;align-items:center;gap:10px;padding:8px 14px 8px 8px;border-radius:14px;background:#16120e;border:3px solid #0d0b09;box-shadow:0 0 0 2px var(--cc,#e2b85c),6px 8px 0 #0d0b09,0 10px 30px rgba(0,0,0,.6);transition:opacity .15s,transform .25s cubic-bezier(.2,1.6,.4,1)}
+.callout.on{opacity:1;transform:translate(-50%,-100%) scale(var(--cs,1))}
+.callout .coimg{width:var(--ci,56px);height:var(--ci,56px);flex:none;border-radius:10px;overflow:hidden;border:2px solid #0d0b09;box-shadow:0 0 0 2px var(--cc,#e2b85c);background:#2a2622;display:flex;align-items:center;justify-content:center}
+.callout .coimg img{width:100%;height:100%;object-fit:cover}.callout .coimg img.round{object-position:50% 15%}
+.callout .cog{font-family:var(--f-serif);font-weight:900;font-size:calc(var(--ci,56px)*.45);color:var(--ivory)}
+.callout .cotx{display:flex;flex-direction:column;line-height:1.1;white-space:nowrap}
+.callout .cotx small{font-size:13px;color:#d9cfb8;font-family:var(--f-serif);font-weight:700}
+.callout .cotx b{font-family:var(--f-serif);font-weight:900;font-size:var(--cf,26px);color:var(--cc,#e2b85c);text-shadow:2px 2px 0 #0d0b09}
+.callout.k-chips{--cc:#6cb6ff}.callout.k-fan{--cc:#ff7656}.callout.k-xfan{--cc:#ffd36a}
+.callout.k-xfan .cotx b{color:#fff;background:#c8402c;border:2px solid #0d0b09;border-radius:8px;padding:0 10px;text-shadow:none;margin-top:3px}
+.callout.L0{--cs:.9;--ci:46px;--cf:22px}.callout.L1{--cs:1;--ci:56px;--cf:26px}.callout.L2{--cs:1.12;--ci:66px;--cf:32px}
+.callout.L3{--cs:1.25;--ci:76px;--cf:40px;animation:coglow .5s ease-in-out infinite alternate}
+@keyframes coglow{to{box-shadow:0 0 0 3px var(--cc),0 0 30px var(--cc),6px 8px 0 #0d0b09}}
+.bump{animation:bump .42s cubic-bezier(.2,1.6,.4,1)}
+@keyframes bump{0%{transform:scale(1)}35%{transform:scale(var(--bs,1.15))}100%{transform:scale(1)}}
+.slothit{animation:slothit .6s cubic-bezier(.2,1.6,.4,1);position:relative;z-index:30}
+@keyframes slothit{0%{transform:none}25%{transform:scale(var(--bs,1.3)) rotate(-8deg);box-shadow:0 0 0 3px #f2c14e,0 0 18px rgba(242,193,78,.8)}55%{transform:scale(calc(var(--bs,1.3)*.92)) rotate(6deg)}100%{transform:none}}
+.tilehit{animation:tilehit .38s ease}
+@keyframes tilehit{40%{transform:translateY(-10px) scale(1.12)}}
+.popn.chipn{color:#8fc4ff;font-size:20px}
+.spark{position:fixed;z-index:66;width:7px;height:7px;border-radius:50%;pointer-events:none;box-shadow:0 0 8px currentColor;animation:spark .85s ease-out forwards}
+@keyframes spark{0%{transform:translate(-50%,-50%) scale(1);opacity:1}100%{transform:translate(calc(-50% + var(--dx)),calc(-50% + var(--dy))) scale(.2);opacity:0}}
+.flashov{position:fixed;inset:0;z-index:64;pointer-events:none;animation:flashov .5s ease-out forwards}
+@keyframes flashov{from{opacity:1}to{opacity:0}}
+.playpane.heat1 .ppbox{filter:drop-shadow(0 0 10px rgba(255,200,120,.45))}
+.playpane.heat2 .ppbox{filter:drop-shadow(0 0 16px rgba(255,150,60,.75))}
+.playpane.heat2 .fbox{animation:hotfan 1s ease-in-out infinite}
+.playpane.heat3 .ppbox{filter:drop-shadow(0 0 26px rgba(255,110,40,.95))}
+.playpane.heat3 .cbox,.playpane.heat3 .fbox{animation:hotbox .35s ease-in-out infinite alternate}
+@keyframes hotfan{50%{box-shadow:0 0 0 2px #ffb36a,0 0 18px #ff7a3c,4px 4px 0 var(--ink)}}
+@keyframes hotbox{from{box-shadow:0 0 0 2px #ffd36a,0 0 14px #ff7a3c,4px 4px 0 var(--ink)}to{box-shadow:0 0 0 3px #fff2b0,0 0 34px #ff5a1c,4px 4px 0 var(--ink);transform:translateY(-2px)}}
+.pptotal.t1{color:#fff3c4}
+.pptotal.t2{color:#ffd36a;animation:tot2 .6s ease-in-out infinite alternate}
+.pptotal.t3{color:#ffd36a;font-size:clamp(56px,7vw,88px);animation:tot3 .35s ease-in-out infinite alternate}
+.pptotal.t4{color:#fff;font-size:clamp(64px,8vw,104px);animation:tot3 .22s ease-in-out infinite alternate;text-shadow:4px 4px 0 #ff5a1c,8px 8px 0 var(--ink),0 0 40px #ffb36a}
+@keyframes tot2{to{transform:scale(1.06)}}
+@keyframes tot3{from{transform:scale(1) rotate(-1deg)}to{transform:scale(1.12) rotate(1deg)}}
+@media (prefers-reduced-motion:reduce){.callout.L3,.playpane .fbox,.playpane .cbox,.pptotal{animation:none!important}}
+
+/* 集市下排（签、谱、营造）：横条小卡，两列 */
+html.phone #app[data-screen=shop] .pshop .offers.pmini{grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:5px}
+html.phone .pshop .pmini .tcard{display:grid;grid-template-columns:38px minmax(0,1fr) auto;grid-template-rows:auto auto;align-items:center;column-gap:7px;row-gap:1px;padding:5px 6px;text-align:left;height:auto}
+html.phone .pshop .pmini .tban{grid-column:2;grid-row:1;margin:0;padding:0;background:none!important;border:none;color:var(--ivory)!important;font-size:12.5px;text-align:left}
+html.phone .pshop .pmini .tcard.qian .tban{color:#ffb4a8!important}html.phone .pshop .pmini .tcard.pu .tban{color:#9fe3c0!important}html.phone .pshop .pmini .tcard.ying .tban{color:#e8cf9a!important}
+html.phone .pshop .pmini .tframe{grid-column:1;grid-row:1/3;width:38px!important;max-width:38px;padding:0!important;background:none;aspect-ratio:1}
+html.phone .pshop .pmini .tslot{border-radius:6px;border:1.5px solid #0d0b09}
+html.phone .pshop .pmini .tglyph{font-size:18px!important}
+html.phone .pshop .pmini .tkind{display:none}
+html.phone .pshop .pmini .teff{grid-column:2;grid-row:2;font-size:10.5px!important;line-height:1.35;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-align:left}
+html.phone .pshop .pmini .tcard .btn{grid-column:3;grid-row:1/3;margin:0;min-height:40px;min-width:44px;padding:0 6px;font-size:12.5px;white-space:nowrap}
+html.phone .pshop .pmini .tcard .btn{font-size:0}
+html.phone .pshop .pmini .tcard .btn::after{content:attr(data-price);font-size:13px}
+html.phone #app[data-screen=over] .title-art,html.phone #app[data-screen=win] .title-art{max-height:11vh}
+html.phone .newach small{display:block;font-size:10.5px}
+/* 选人：手机上横着一张一张滑 */
+html.phone #app[data-screen=select] .chars{display:flex!important;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;gap:12px;padding:4px 9vw 8px;margin:0 -10px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+html.phone #app[data-screen=select] .chars::-webkit-scrollbar{display:none}
+html.phone #app[data-screen=select] .ccard{flex:0 0 82vw;max-width:420px;scroll-snap-align:center;scroll-snap-stop:always}
+html.phone #app[data-screen=select] .ccard .body{padding:10px 14px 12px;gap:4px}
+html.phone #app[data-screen=select] .ccard .body p{font-size:14px;line-height:1.55}
+html.phone #app[data-screen=select] .ccard .skill{font-size:17px}
+html.phone #app[data-screen=select] .ccard .sub{font-size:14px}
+.cdots{display:none}
+html.phone .cdots{display:flex;justify-content:center;gap:8px;flex:none;margin-top:-2px}
+.cdots i{width:8px;height:8px;border-radius:50%;background:#4a4238;transition:all .2s}
+.cdots i.on{width:22px;border-radius:4px;background:var(--gold)}
+
+html.phone .newach ul,html.phone .newach>small{display:none}
+html.phone #app[data-screen=over] .card.newach,html.phone #app[data-screen=win] .card.newach{text-align:center;padding:6px 10px}
+.slot[data-sealed]{filter:grayscale(1) brightness(.45);position:relative}
+.slot[data-sealed]::after{content:'封';position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:var(--f-serif);font-weight:900;font-size:20px;color:#ff8a6a;filter:none;text-shadow:0 0 4px #000}
+
+html.phone .lbend .small,html.phone .lbend [data-act=share-copy]{display:none}
+html.phone #app[data-screen=over] .panel span:nth-child(4),html.phone #app[data-screen=win] .panel span:nth-child(4){display:none}
+html.phone .lbend .row.center{flex-wrap:nowrap}
+html.phone .endshare .btn{font-size:14px!important}
+html.phone .endshare [data-act=endless-go]{flex:1}
+
+html.phone #app[data-screen=shop] .pshop .pmini .tkind{display:none}
+html.phone #app[data-screen=shop] .pshop .pmini .tframe{max-width:44px}
+html.phone #app[data-screen=shop] .pshop .offers[style*="--n:4"] .tframe{max-width:46px}
+html.phone .poffers{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:4px}
 </style>
+
 
 </head><body>
 <div class="sky" aria-hidden="true"><svg viewBox="0 0 400 120" preserveAspectRatio="xMidYMax slice"></svg></div>
@@ -2280,8 +2506,9 @@ RIGS["fate_xiangyun_3"] = {"w": 720, "h": 1080, "parts": [{"n": "bottomwear", "x
 RIGS["fate_xiangyun_4"] = {"w": 720, "h": 1080, "parts": [{"n": "handwear", "x": 262, "y": 854, "w": 263, "h": 226}, {"n": "neck", "x": 316, "y": 373, "w": 182, "h": 146}, {"n": "topwear", "x": 0, "y": 364, "w": 720, "h": 640}, {"n": "back_hair", "x": 9, "y": 288, "w": 437, "h": 447}, {"n": "ears", "x": 251, "y": 344, "w": 73, "h": 41}, {"n": "face", "x": 123, "y": 348, "w": 272, "h": 215}, {"n": "nose", "x": 286, "y": 480, "w": 35, "h": 25}, {"n": "eyebrow-r", "x": 225, "y": 413, "w": 13, "h": 75}, {"n": "mouth", "x": 324, "y": 473, "w": 25, "h": 31}, {"n": "eyebrow-l", "x": 236, "y": 518, "w": 19, "h": 40}, {"n": "eyelash-r", "x": 258, "y": 409, "w": 20, "h": 64}, {"n": "eyelash-l", "x": 268, "y": 510, "w": 19, "h": 40}, {"n": "eyewhite", "x": 258, "y": 413, "w": 16, "h": 50}, {"n": "front_hair", "x": 93, "y": 357, "w": 292, "h": 262}], "k": {"breath": 4.4, "lift": 2.0, "chest": 0.006, "sway": 7.5, "tilt": 0.4, "nod": 0.3, "drift": 0.5, "earring": 8, "look": 2.2, "follow": 0.6, "hand": 1.8, "amp": 1, "hair": {"front_hair": 2.6, "back_hair": 2.0}, "hairRoot": {"front_hair": 0.3, "back_hair": 0.35}, "pivot": [259, 548], "chestTop": 364, "mid": 360, "waist": 1004, "group": {"handwear": "hand", "neck": "neck", "topwear": "body", "back_hair": "hair", "ears": "head", "face": "head", "nose": "head", "eyebrow-r": "brow", "mouth": "head", "eyebrow-l": "brow", "eyelash-r": "lash", "eyelash-l": "lash", "eyewhite": "eye", "front_hair": "hair"}, "eye": {}}};
 RIGS["fate_xiangyun_5"] = {"w": 720, "h": 1080, "parts": [{"n": "handwear-l", "x": 207, "y": 259, "w": 230, "h": 313}, {"n": "ears-r", "x": 28, "y": 466, "w": 21, "h": 23}, {"n": "eyebrow-r", "x": 52, "y": 440, "w": 18, "h": 15}, {"n": "topwear", "x": 57, "y": 448, "w": 254, "h": 537}, {"n": "neck", "x": 168, "y": 417, "w": 65, "h": 78}, {"n": "handwear-r", "x": 55, "y": 530, "w": 216, "h": 327}, {"n": "face", "x": 22, "y": 304, "w": 241, "h": 197}, {"n": "mouth", "x": 81, "y": 394, "w": 174, "h": 91}, {"n": "eyelash-l", "x": 232, "y": 350, "w": 16, "h": 19}, {"n": "nose", "x": 238, "y": 376, "w": 17, "h": 20}, {"n": "ears-l", "x": 148, "y": 408, "w": 35, "h": 31}, {"n": "eyebrow-l", "x": 175, "y": 348, "w": 39, "h": 28}, {"n": "eyewhite-r", "x": 191, "y": 367, "w": 25, "h": 30}, {"n": "eyewhite-l", "x": 234, "y": 355, "w": 14, "h": 23}, {"n": "irides-l", "x": 234, "y": 356, "w": 14, "h": 21}, {"n": "irides-r", "x": 196, "y": 369, "w": 18, "h": 25}, {"n": "eyelash-r", "x": 189, "y": 359, "w": 24, "h": 35}, {"n": "front_hair", "x": 67, "y": 263, "w": 208, "h": 192}], "k": {"breath": 4.4, "lift": 4.5, "chest": 0.006, "sway": 7.5, "tilt": 1.4, "nod": 1.0, "drift": 1.6, "earring": 8, "look": 2.2, "follow": 2.2, "hand": 1.8, "amp": 1, "hair": {"front_hair": 2.6, "back_hair": 2.0}, "hairRoot": {"front_hair": 0.3, "back_hair": 0.35}, "pivot": [142, 487], "chestTop": 448, "mid": 184, "waist": 985, "group": {"handwear-l": "hand", "ears-r": "head", "eyebrow-r": "brow", "topwear": "body", "neck": "neck", "handwear-r": "hand", "face": "head", "mouth": "head", "eyelash-l": "lash", "nose": "head", "ears-l": "head", "eyebrow-l": "brow", "eyewhite-r": "eye", "eyewhite-l": "eye", "irides-l": "iris", "irides-r": "iris", "eyelash-r": "lash", "front_hair": "hair"}, "eye": {"r": [203.5, 392], "l": [241.0, 374]}}};
 RIGS["fate_xiangyun_6"] = {"w": 720, "h": 1080, "parts": [{"n": "neck", "x": 19, "y": 427, "w": 525, "h": 146}, {"n": "neckwear", "x": 0, "y": 525, "w": 187, "h": 82}, {"n": "back_hair", "x": 405, "y": 208, "w": 202, "h": 261}, {"n": "topwear", "x": 372, "y": 487, "w": 265, "h": 375}, {"n": "ears-r", "x": 409, "y": 414, "w": 34, "h": 46}, {"n": "face", "x": 111, "y": 329, "w": 433, "h": 222}, {"n": "eyebrow-r", "x": 408, "y": 387, "w": 41, "h": 14}, {"n": "nose", "x": 463, "y": 431, "w": 18, "h": 25}, {"n": "ears-l", "x": 537, "y": 395, "w": 30, "h": 51}, {"n": "eyebrow-l", "x": 474, "y": 376, "w": 51, "h": 11}, {"n": "eyelash-r", "x": 413, "y": 393, "w": 43, "h": 46}, {"n": "mouth", "x": 464, "y": 452, "w": 37, "h": 32}, {"n": "eyewhite-r", "x": 425, "y": 407, "w": 31, "h": 29}, {"n": "eyewhite-l", "x": 493, "y": 397, "w": 34, "h": 29}, {"n": "irides-r", "x": 431, "y": 407, "w": 22, "h": 30}, {"n": "irides-l", "x": 497, "y": 397, "w": 24, "h": 30}, {"n": "eyelash-l", "x": 484, "y": 391, "w": 49, "h": 21}, {"n": "front_hair", "x": 376, "y": 277, "w": 205, "h": 158}, {"n": "handwear-l", "x": 439, "y": 541, "w": 222, "h": 383}, {"n": "objects", "x": 283, "y": 406, "w": 74, "h": 115}, {"n": "handwear-r", "x": 205, "y": 424, "w": 226, "h": 285}], "k": {"breath": 4.4, "lift": 4.5, "chest": 0.006, "sway": 7.5, "tilt": 1.4, "nod": 1.0, "drift": 1.6, "earring": 8, "look": 2.2, "follow": 2.2, "hand": 1.8, "amp": 1, "hair": {"front_hair": 2.6, "back_hair": 2.0}, "hairRoot": {"front_hair": 0.3, "back_hair": 0.35}, "pivot": [328, 535], "chestTop": 487, "mid": 504, "waist": 862, "group": {"neck": "neck", "neckwear": "body", "back_hair": "hair", "topwear": "body", "ears-r": "head", "face": "head", "eyebrow-r": "brow", "nose": "head", "ears-l": "head", "eyebrow-l": "brow", "eyelash-r": "lash", "mouth": "head", "eyewhite-r": "eye", "eyewhite-l": "eye", "irides-r": "iris", "irides-l": "iris", "eyelash-l": "lash", "front_hair": "hair", "handwear-l": "hand", "objects": "hand", "handwear-r": "hand"}, "eye": {"r": [440.5, 431], "l": [510.0, 421]}}};
+RIGS["credits_baochai"] = {"w": 720, "h": 1080, "parts": [{"n": "back_hair", "x": 0, "y": 0, "w": 637, "h": 923}, {"n": "topwear", "x": 280, "y": 495, "w": 408, "h": 585}, {"n": "handwear", "x": 0, "y": 581, "w": 714, "h": 499}, {"n": "neck", "x": 451, "y": 384, "w": 141, "h": 194}, {"n": "ears-r", "x": 357, "y": 309, "w": 41, "h": 87}, {"n": "face", "x": 338, "y": 158, "w": 236, "h": 318}, {"n": "earwear", "x": 409, "y": 335, "w": 60, "h": 99}, {"n": "ears-l", "x": 551, "y": 291, "w": 61, "h": 101}, {"n": "eyewhite-r", "x": 361, "y": 307, "w": 48, "h": 35}, {"n": "eyewhite-l", "x": 476, "y": 293, "w": 64, "h": 40}, {"n": "irides-l", "x": 486, "y": 291, "w": 42, "h": 39}, {"n": "headwear", "x": 307, "y": 156, "w": 289, "h": 154}, {"n": "eyelash-l", "x": 457, "y": 278, "w": 107, "h": 39}, {"n": "irides-r", "x": 370, "y": 305, "w": 34, "h": 37}, {"n": "eyelash-r", "x": 340, "y": 298, "w": 75, "h": 48}, {"n": "eyebrow-r", "x": 332, "y": 279, "w": 77, "h": 20}, {"n": "nose", "x": 414, "y": 336, "w": 18, "h": 47}, {"n": "mouth", "x": 423, "y": 392, "w": 48, "h": 31}, {"n": "eyebrow-l", "x": 438, "y": 266, "w": 114, "h": 23}, {"n": "front_hair", "x": 237, "y": 106, "w": 371, "h": 262}], "k": {"breath": 4.4, "lift": 4.5, "chest": 0.006, "sway": 7.5, "tilt": 1.4, "nod": 1.0, "drift": 1.6, "earring": 8, "look": 2.2, "follow": 2.2, "hand": 1.8, "amp": 1, "hair": {"front_hair": 2.6, "back_hair": 2.0}, "hairRoot": {"front_hair": 0.3, "back_hair": 0.35}, "pivot": [456, 454], "chestTop": 495, "mid": 484, "waist": 1080, "group": {"back_hair": "hair", "topwear": "body", "handwear": "hand", "neck": "neck", "ears-r": "head", "face": "head", "earwear": "ear", "ears-l": "head", "eyewhite-r": "eye", "eyewhite-l": "eye", "irides-l": "iris", "headwear": "head", "eyelash-l": "lash", "irides-r": "iris", "eyelash-r": "lash", "eyebrow-r": "brow", "nose": "head", "mouth": "head", "eyebrow-l": "brow", "front_hair": "hair"}, "eye": {"r": [385.0, 336], "l": [508.0, 326]}}};
 
-const GAME_VERSION = '2.24';
+const GAME_VERSION = '2.25';
 'use strict';
 // ================= config =================
 const ROUNDS = 6;
@@ -2307,7 +2534,7 @@ const ui = { sel: null, swapSel: [], swapMode: false, info: null, rules: false, 
 const rnd = n => Math.floor(gr() * n);
 function shuffle(a) { for (let i = a.length - 1; i > 0; i--) { const j = rnd(i + 1); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
-const has = id => !!G && G.treasures.includes(id);
+const has = id => !!G && G.treasures.includes(id) && !(G.m && G.m.sealed === id); // 2.25 无尽坐庄「抄检」会封住一件
 const sortHand = h => h.sort((a, b) => a.t - b.t || a.id - b.id);
 const fmt = n => (Math.round(n * 100) / 100).toString();
 const imgSrc = id => (typeof IMGS !== 'undefined' && IMGS[id]) || `img/${id}.jpg`;
@@ -3472,7 +3699,7 @@ function codexHTML() {
         return `<h4 class="rhead r-${r}">${RARITY[r].label} · ${list.length} 件</h4><div class="cgrid tgrid">` +
         list.map(t => treasureCard(t, 'codex')).join('') + '</div>'; }).join('');
   } else if (tab === 'cons') {
-    body = `<p class="small">集市每次摆 2 张签或谱。<b class="kw">谱</b>买下立刻读，永久升级一种面子或番种（像《小丑牌》的星球牌）；<b class="kw">签</b>留着在牌局里用，可以改手里的牌（最多带 ${consSlots()} 张）。</p>
+    body = `<p class="small">集市每次摆 2 张签或谱。<b class="kw">谱</b>买下立刻读，永久升级一种面子或番种；<b class="kw">签</b>留着在牌局里用，可以改手里的牌（最多带 ${consSlots()} 张）。</p>
       <h4 class="rhead">现在的牌谱等级</h4>${levelsHTML()}
       <h4 class="rhead">签 · ${QIAN.length} 种</h4><div class="cgrid tgrid">${QIAN.map(q => consCard(CONSUMABLE[q.id], 'codex')).join('')}</div>
       <h4 class="rhead">谱 · ${PU_MELD.length + PU_FAN.length} 种</h4><div class="cgrid tgrid">${PU_MELD.concat(PU_FAN).map(p => consCard(CONSUMABLE[p.id], 'codex')).join('')}</div>`;
@@ -3480,7 +3707,7 @@ function codexHTML() {
     body = fansTab2();
   } else if (tab === 'bosses') {
     body = `<p class="small">每回第三场是坐庄局。前五回从下面四位里随机出场，第六回固定是贾母。</p>` +
-      BOSSES.concat([FINAL_BOSS]).map(b => `<div class="citem wide"><h4>${esc(b.name)}</h4><p>${kw(b.rule)}</p></div>`).join('');
+      BOSSES.concat([FINAL_BOSS], typeof ENDLESS_BOSSES !== 'undefined' ? ENDLESS_BOSSES : []).map(b => `<div class="citem wide"><h4>${esc(b.name)}</h4><p>${kw(b.rule)}</p></div>`).join('');
   } else if (tab === 'chars') {
     body = CHARACTERS.map(c => `<div class="citem wide ${G && G.char === c.id ? 'own' : ''}"><h4>${esc(c.name)} · ${esc(c.skill)}</h4><p>${kw(c.desc)}</p></div>`).join('');
   } else {
@@ -3493,20 +3720,11 @@ function codexHTML() {
 }
 
 // ================= views =================
-// ================= 背景音乐：古筝 + 竖琴（2.19 重做，music/bgm.py 合成） =================
-const BGM = (() => {
-  const KEY = 'dgy-music';
-  let on = true; try { on = localStorage.getItem(KEY) !== 'off'; } catch (e) { }
-  let el = null;
-  const src = () => (typeof IMGS !== 'undefined' && IMGS.bgm) || 'img/bgm.mp3';
-  function ensure() { if (!el) { el = new Audio(src()); el.loop = true; el.volume = 0.32; } return el; }
-  return {
-    get on() { return on; },
-    start() { if (!on) return; try { const p = ensure().play(); if (p && p.catch) p.catch(() => { }); } catch (e) { } },
-    toggle() { on = !on; try { localStorage.setItem(KEY, on ? 'on' : 'off'); } catch (e) { } if (on) this.start(); else if (el) el.pause(); },
-  };
-})();
-const muteBtn = () => `<button class="chip mute" data-act="mute" aria-label="${SFX.muted ? '打开声音' : '关闭声音'}">${SFX.muted ? '音效 关' : '音效 开'}</button><button class="chip mute" data-act="music" aria-label="${BGM.on ? '关闭音乐' : '打开音乐'}">${BGM.on ? '音乐 开' : '音乐 关'}</button>`;
+// ================= 背景音乐：2.25 起拿掉（Cc：只要音效，不要音乐）。留个空壳，旧代码调用不报错 =================
+const BGM = { on: false, start() { }, toggle() { } };
+// 2.25 计分速度：1× 最慢、看得最清楚；2×、3× 快一些（设置里可以调）
+let SPEED = (() => { try { return Math.min(3, Math.max(1, +localStorage.getItem('dgy-speed') || 1)); } catch (e) { return 1; } })();
+const muteBtn = () => `<button class="chip mute" data-act="mute" aria-label="${SFX.muted ? '打开音效' : '关闭音效'}">${SFX.muted ? '音效 关' : '音效 开'}</button><button class="chip mute" data-act="speed" aria-label="计分速度，点一下换">计分 ${SPEED}×</button>`;
 function viewTitle() {
   const saved = G || loadSave();
   const canResume = saved && saved.v === 2 && !['over', 'win'].includes(saved.screen);
@@ -3934,6 +4152,7 @@ document.addEventListener('click', e => {
   if (act_ === 'opening-skip') { ui.skipOpen = true; return; }
   if (act_ === 'mute') { SFX.toggle(); render(); return; }
   if (act_ === 'music') { BGM.toggle(); render(); return; }
+  if (act_ === 'speed') { SPEED = SPEED % 3 + 1; try { localStorage.setItem('dgy-speed', SPEED); } catch (e) { } SFX.select(); render(); toast(`计分 ${SPEED} 倍速`, SPEED === 1 ? '最慢，每件珍玩加了多少都看得清。' : SPEED === 2 ? '快一点。' : '最快。计分时点一下屏幕还能直接跳过。'); return; }
   if (b.getAttribute('aria-disabled') === 'true') { shake(b); SFX.buzz(); return; }
   if (ui.busy) { if (b.classList.contains('tile') || b.classList.contains('btn')) shake(b); return; }
   const id = b.dataset.id != null ? (isNaN(+b.dataset.id) ? b.dataset.id : +b.dataset.id) : null;
@@ -4027,7 +4246,7 @@ window.claude?.hot?.snapshot?.(() => ({ G, screen }));
 window.claude?.hot?.ready ? window.claude.hot.ready(boot) : boot(window.claude?.hot?.data ?? {});
 
 // =====================================================================
-// 核心玩法 v2（v33 起）：像《小丑牌》一样出牌
+// 核心玩法 v2（v33 起）：亮牌计分
 // 每场：手里 11 张牌，4 次亮牌、3 次弃牌。每次挑 1–6 张亮出来，立刻按牌型计分：
 //   (牌型底分 + 每张牌的点数 + 珍玩加的筹码) × (牌型番数 + 番种 + 珍玩加的番) × 珍玩的倍数
 // 四次亮牌里凑够 4 组面子 + 1 对雀头 = 胡牌，这一场的总分翻倍。
@@ -4245,6 +4464,7 @@ function scorePlay(sel) {
   const c = classifyPlay(sel);
   const p = PT[c.type], L = lvOf(c.type);
   let tags = c.tags.slice();
+  if (m.boss === 'yucun' && tags.length) { tags = []; } // 2.25 无尽坐庄：贾雨村乱判，番种不加番
   if (m.boss === 'jiazheng' && tags.length > 1) { tags.sort((a, b) => (PTAG[b].f + ((G.tlv || {})[b] || 0) * PTAG[b].lf) - (PTAG[a].f + ((G.tlv || {})[a] || 0) * PTAG[a].lf)); tags = tags.slice(0, 1); }
   c.tags = tags;
   const steps = [];
@@ -4788,7 +5008,7 @@ function sideHTML() {
   const pct = Math.min(100, m.score / Math.max(1, oppMax() + 1, lineOf()) * 100);
   const c = charById(G.char);
   return `<aside class="side">
-    <div class="sbox stagebox"><b>第 ${G.round}/${ROUNDS} 回 · ${kind.name}</b><span>${esc(g.name)}${b ? ' · ' + esc(b.name) + '坐庄' : ''}</span></div>
+    <div class="sbox stagebox"><b>${roundTxt()} · ${kind.name}</b><span>${esc(g.name)}${b ? ' · ' + esc(b.name) + '坐庄' : ''}</span></div>
     ${b ? `<div class="sbox bossbox"><b>${esc(b.name)}坐庄</b><span>${kw(b.rule)}</span></div>` : ''}
     <div class="sbox score2 ${m.score > oppMax() ? 'full' : ''}"${tip('四个人同场比分。你的分到过关线、又比三家都高，立刻过关，剩下的亮牌每次 +$1；到不了也没关系，亮牌用完时比三家都高照样过关。')}>
       <div class="srow opp"><small>最高的对手 · ${esc(seatName(oppLeader()))}</small><b class="${numCls(oppMax())} ${oppMax() >= m.score && oppMax() > 0 ? 'up' : ''}">${num(oppMax())}</b></div>
@@ -4879,7 +5099,7 @@ const RULES2 = `<p><b>每一场：</b>手里 ${HAND_SIZE} 张牌，有 ${BASE_PL
 <p><b>四个人比分：</b>三家也在打：你每亮一次、弃一次牌，他们各摸一张，凑出面子就亮出来得分。</p><p><b>点炮：</b>你弃掉的牌，他们手里有一对就碰走（下家还能吃）。她拿你的牌亮出面子得分，你还要从自己的分里付给她这组分数的一半。</p><p><b>听牌与点炮胡：</b>三家打小胡，凑够 3 组面子加 1 对就胡（胡了分数翻倍）。差一张就胡时，她的卡上会亮「听牌」。这时你弃的牌要是正好是她等的那张，就是点炮胡：她当场胡牌、分数翻倍，你还要付她这组分数的全额。每家弃过的牌摆在她卡上，看她在凑什么、弃过什么，猜她等哪张。</p><p><b>每日一局：</b>每天全国的玩家拿同一副牌、同一个人物，每人只算第一次，打完可以留名上榜。</p><p><b>过关：</b>两种过法。①分数到「过关线」、又比三家都高，立刻过关，剩下的亮牌每次 +$1；②亮牌次数用完时，你的分比三家都高也过关。领先越多、给的钱越多。没过关灭一盏灯，三盏都灭了这一局就结束。</p>
 <p><b>牌型：</b>${PTYPES.map(p => `${p.name} ${p.c}×${p.f}`).join('　')}</p>
 <p><b>番种：</b>${PTAGS.map(t => `${t.name} +${t.f} 番（${t.desc}）`).join('；')}</p>
-<p><b>谱</b>买下立刻读，永久升级一种牌型或番种（像《小丑牌》的星球牌）；<b>签</b>留着在牌局里改手里的牌。<b>园中营造</b>每一回在集市摆一处，$10，盖了永久生效（像《小丑牌》的优惠券）。</p>`;
+<p><b>谱</b>买下立刻读，永久升级一种牌型或番种；<b>签</b>留着在牌局里改手里的牌。<b>园中营造</b>每一回在集市摆一处，$10，盖了永久生效。</p>`;
 
 function levelsHTML() {
   const rows = PTYPES.map(p => { const L = lvOf(p.id); return `<tr><td>${p.name}</td><td>Lv.${L + 1}</td><td>${p.c + L * p.lc} 筹码 × ${p.f + L * p.lf} 番</td></tr>`; }).join('')
@@ -4957,7 +5177,7 @@ function num(n) { return Math.round(n).toLocaleString('en-US'); }
 function numCls(n) { const L = num(n).length; return L >= 9 ? 'n9' : L >= 7 ? 'n7' : ''; }
 
 // =====================================================================
-// 2.16 园中营造（像《小丑牌》的优惠券）+ 五张新签
+// 2.16 园中营造+ 五张新签
 // 营造：每一回集市里摆一处，$10，买下永久生效；有些要先盖了前一处才会出现。
 // =====================================================================
 const YINGZAO = [
@@ -4983,7 +5203,7 @@ function shopSlots() { return 3 + (hasY('y_qiushuang') ? 1 : 0); }
 function consShopSlots() { return 2 + (hasY('y_xiaocui') ? 1 : 0); }
 function yPrice(p) { if (hasY('y_ziling')) return Math.max(1, Math.round(p * 0.5)); if (hasY('y_nuanxiang')) return Math.max(1, Math.round(p * 0.75)); return p; }
 function consPrice(c) { return yPrice(c.price); }
-function yzAvail() { return YINGZAO.filter(y => !hasY(y.id) && (!y.req || hasY(y.req))); }
+function yzAvail() { return YINGZAO.filter(y => !hasY(y.id) && (!y.req || hasY(y.req)) && (typeof isUnl !== 'function' || isUnl('y', y.id))); }
 // 每一回第一次进集市时摆出这一回的营造；买了就空着，等下一回
 function rollYing() {
   if (G.yzRound === G.round) return;
@@ -5042,7 +5262,7 @@ function useInstant(id) {
   if (id === 'q_more') { m.plays += 1; m.playsMax += 1; return '这一场多 1 次亮牌。'; }
   if (id === 'q_cash') { const add = Math.min(15, Math.max(0, G.money)); G.money += add; return `+$${add}`; }
   if (id === 'q_card') {
-    const pool = TREASURES.filter(t => t.r === 'white' && !G.treasures.includes(t.id));
+    const pool = TREASURES.filter(t => t.r === 'white' && !G.treasures.includes(t.id) && (typeof tUnlocked !== 'function' || tUnlocked(t.id)));
     const t = pool[rnd(pool.length)]; if (!t) return '';
     G.treasures.push(t.id); if (t.grow) { G.ts = G.ts || {}; G.ts[t.id] = t.init || 0; }
     return `得到「${t.name}」：${t.desc}`;
@@ -5084,6 +5304,166 @@ function applyCons(opt) {
   restart(el, 'drawn', 500); popAt(el, { q_gold: '+8 点', q_gild: '鎏金 +2 番', q_glass: '琉璃 ×1.5' }[used] || '变！', 'gold'); SFX.chime();
 }
 CORE2_ACT = (function (_act) { return function (a, b, id) { if (a === 'buy-ying') { buyYing(b); return true; } return _act(a, b, id); }; })(CORE2_ACT);
+
+// ================= 2.25 计分的爽感 =================
+// Cc：珍玩触发时反馈太小、算分太快看不清；反馈要从小到大分档，后期倍数暴涨时要爆炸式。
+// 做法：
+//  1. 每件珍玩触发时，牌桌上方弹出一张大的「触发卡」：珍玩大图 + 名字 + 加了多少（蓝 +筹码 / 红 +番 / 红底 ×番），
+//     同时顶上那一排里的这件珍玩跳一下。
+//  2. 每一步都按「这一下有多大」分四档（小 / 中 / 高 / 超高）：卡片大小、字号、声音、震屏、火花一档比一档大。
+//     +筹码、+番按「加之前的几倍」算；×番按倍数算。
+//  3. 筹码 × 番 的估算分一路涨，牌桌按「到过关线的几成」发热：一档发光、二档火苗、三档整块烧起来。
+//  4. 设置里 1×（默认，最慢）/ 2× / 3×；计分时点一下屏幕直接跳到结果。
+const wsl = ms => sleep(ms / SPEED);
+function lvlOf(kind, v, before) {
+  if (kind === 'xfan') return v >= 4 ? 3 : v >= 2.5 ? 2 : v >= 1.5 ? 1 : 0;
+  const r = v / Math.max(1, before);
+  return r >= 2 ? 3 : r >= 0.75 ? 2 : r >= 0.25 ? 1 : 0;
+}
+function heatOf(est) { const q = est / Math.max(1, lineOf()); return q >= 1 ? 3 : q >= 0.35 ? 2 : q >= 0.1 ? 1 : 0; }
+function srcIcon(s) {
+  if (s.src && s.src !== 'char' && TREASURE[s.src]) return ITEM_ICONS.has(s.src) ? `<img src="${assetSrc('item_' + s.src)}" alt="">` : `<span class="cog">${esc(TREASURE[s.src].name.slice(0, 1))}</span>`;
+  if (s.src === 'char') return `<img src="${imgSrc(G.char)}" alt="" class="round">`;
+  if (s.tag) return `<span class="cog tag">${esc(PTAG[s.tag].name.slice(0, 2))}</span>`;
+  return `<span class="cog">${esc((s.label || '?').slice(0, 1))}</span>`;
+}
+function srcName(s) {
+  if (s.src && s.src !== 'char' && TREASURE[s.src]) return TREASURE[s.src].name;
+  if (s.src === 'char') return `${charById(G.char).name} · ${s.label || charById(G.char).skill}`;
+  if (s.tag) return `番种 · ${PTAG[s.tag].name}`;
+  return s.label || '';
+}
+function effText(s) { return s.kind === 'chips' ? `+${fmt(s.v)} 筹码` : s.kind === 'fan' ? `+${fmt(s.v)} 番` : `×${fmt(s.v)} 番`; }
+// 触发卡：在牌桌上方弹出来，下一张出来时替换
+function callout(s, lvl) {
+  if (ui.fast) return;
+  const pane = app.querySelector('.playpane'); if (!pane) return;
+  let c = document.getElementById('callout');
+  if (!c) { c = document.createElement('div'); c.id = 'callout'; fx.appendChild(c); }
+  const r = (app.querySelector('.ppbox') || pane).getBoundingClientRect();
+  c.className = `callout k-${s.kind} L${lvl}`;
+  c.innerHTML = `<div class="coimg">${srcIcon(s)}</div><div class="cotx"><small>${esc(srcName(s))}</small><b>${effText(s)}</b></div>`;
+  c.style.left = (r.left + r.width / 2) + 'px'; c.style.top = Math.max(8, r.top - 8) + 'px';
+  void c.offsetWidth; c.classList.add('on');
+  clearTimeout(callout.t); callout.t = setTimeout(() => c.classList.remove('on'), Math.max(500, 1500 / SPEED));
+}
+function sparks(el, n, color) {
+  if (!el || ui.fast || RM) return;
+  const r = el.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+  for (let i = 0; i < n; i++) {
+    const d = document.createElement('i'); d.className = 'spark';
+    const a = Math.random() * Math.PI * 2, dist = 40 + Math.random() * (60 + n * 4);
+    d.style.left = cx + 'px'; d.style.top = cy + 'px'; d.style.background = color;
+    d.style.setProperty('--dx', Math.cos(a) * dist + 'px'); d.style.setProperty('--dy', Math.sin(a) * dist + 'px');
+    fx.appendChild(d); setTimeout(() => d.remove(), 900);
+  }
+}
+function flash(color) { if (ui.fast || RM) return; const d = document.createElement('div'); d.className = 'flashov'; d.style.background = color; fx.appendChild(d); setTimeout(() => d.remove(), 500); }
+function bump(el, lvl) { if (!el) return; el.style.setProperty('--bs', [1.12, 1.25, 1.45, 1.7][lvl]); restart(el, 'bump', 420); }
+function setHeat(h) { const pane = app.querySelector('.playpane'); if (!pane) return; pane.classList.remove('heat1', 'heat2', 'heat3'); if (h) pane.classList.add('heat' + h); }
+function stepSound(s, lvl, n) {
+  if (s.kind === 'chips') { SFX.tick(n + lvl * 3); if (lvl >= 2) SFX.tick(n + 8); }
+  else if (s.kind === 'fan') { SFX.mult(); if (lvl >= 2) SFX.tick(n + 10); }
+  else { SFX.mult(); SFX.thud(); if (lvl >= 2) SFX.mult(); }
+  if (lvl >= 3) { SFX.fanfare(); }
+}
+
+async function doPlay() {
+  const m = G.m, sel = picked();
+  if (!sel.length || sel.length > MAX_PICK || m.plays <= 0 || m.phase !== 'discard') return;
+  const r = scorePlay(sel);
+  m.phase = 'scoring';
+  m.hand = m.hand.filter(x => !sel.includes(x));
+  m.table = sel.map(x => Object.assign({}, x, { hidden: false }));
+  (m.shown = m.shown || []).push({ type: r.c.type, tiles: r.c.scoring.map(x => x.t), total: r.total });
+  m.last = { type: r.c.type, tags: r.c.tags, chips: 0, fan: 0, total: 0, scoring: r.c.scoring.map(x => x.id) };
+  ui.pick = [];
+  save(); render();
+  // ---- 计分动画 ----
+  const $ = s => app.querySelector(s);
+  const pane = $('.playpane');
+  const chipsEl = $('#pp-chips'), fanEl = $('#pp-fan'), typeEl = $('#pp-type');
+  const cbox = chipsEl && chipsEl.closest('.cbox'), fbox = fanEl && fanEl.closest('.fbox');
+  let chips = 0, fan = 0, mult = 1, n = 0;
+  const show = () => { const h = heatOf(chips * fan * mult); setHeat(h); };
+  const setC = (v, lvl = 0) => { chips = v; if (chipsEl) { chipsEl.textContent = fmt(v); bump(cbox || chipsEl, lvl); } show(); };
+  const setF = (v, lvl = 0) => { fan = Math.round(v * 100) / 100; if (fanEl) { fanEl.textContent = fmt(Math.round(fan * mult * 100) / 100); bump(fbox || fanEl, lvl); } show(); };
+  await wsl(380);
+  for (const s of r.steps) {
+    if (s.kind === 'base') {
+      if (typeEl) { typeEl.textContent = s.label; restart(typeEl, 'pop', 400); }
+      setC(s.chips); setF(s.fan); SFX.thud(); await wsl(700); continue;
+    }
+    if (s.kind === 'tile') {
+      const el = $(`.playzone [data-tid="${s.id}"]`);
+      if (el) { restart(el, 'tilehit', 380); popAt(el, '+' + s.v, 'chipn'); }
+      setC(chips + s.v); SFX.tick(n++); await wsl(320); continue;
+    }
+    if (s.kind === 'note') { popAt(fanEl, s.label, 'red'); SFX.buzz(); await wsl(900); continue; }
+    const lvl = lvlOf(s.kind, s.v, s.kind === 'chips' ? chips : s.kind === 'fan' ? fan : 0);
+    const slot = s.src && s.src !== 'char' ? (app.querySelector(`.prelic .slot[data-id="${s.src}"]`) || app.querySelector(`.slot[data-id="${s.src}"]`)) : null;
+    if (slot) { slot.style.setProperty('--bs', [1.2, 1.35, 1.55, 1.8][lvl]); restart(slot, 'slothit', 600); }
+    const tileEl = s.tile != null ? $(`.playzone [data-tid="${s.tile}"]`) : null;
+    if (tileEl) restart(tileEl, 'tilehit', 380);
+    callout(s, lvl);
+    if (s.kind === 'chips') { setC(chips + s.v, lvl); sparks(cbox, 4 + lvl * 6, '#8fc4ff'); }
+    else if (s.kind === 'fan') { setF(fan + s.v, lvl); sparks(fbox, 4 + lvl * 6, '#ff8a6a'); }
+    else { mult = Math.round(mult * s.v * 10000) / 10000; setF(fan, lvl); sparks(fbox, 8 + lvl * 10, '#ffd36a'); if (lvl >= 1) shake(pane); }
+    stepSound(s, lvl, n++);
+    if (lvl >= 2) bigShake();
+    if (lvl >= 3) { flash(s.kind === 'chips' ? 'rgba(90,150,255,.35)' : 'rgba(255,120,60,.4)'); sparks(pane, 26, '#fff3c4'); }
+    await wsl([750, 900, 1100, 1400][lvl] + (s.kind === 'xfan' ? 200 : 0));
+  }
+  setF(fan);
+  if (fanEl) fanEl.textContent = fmt(r.finalFan);
+  await wsl(300);
+  const totEl = $('#pp-total');
+  const q = r.total / Math.max(1, lineOf()), tier = q >= 3 ? 4 : q >= 1 ? 3 : q >= 0.5 ? 2 : q >= 0.25 ? 1 : 0;
+  if (totEl) {
+    totEl.classList.remove('hid'); totEl.classList.add('t' + tier);
+    await countTo(totEl, 0, r.total, Math.min(2600, (700 + r.total / 20 + tier * 350)) / SPEED);
+  }
+  if (tier === 0) { SFX.thud(); }
+  if (tier >= 1) { bigShake(); SFX.thud(); sparks(totEl, 10 + tier * 10, '#ffd36a'); }
+  if (tier === 1) { stamp('漂亮', 'gold'); SFX.fanfare(); }
+  if (tier === 2) { stamp('好牌！', 'gold'); SFX.fanfare(); flash('rgba(255,210,120,.25)'); }
+  if (tier === 3) { stamp('一手过关！', 'gold'); SFX.fanfare(); flash('rgba(255,210,120,.4)'); sparks(pane, 40, '#ffe7a0'); setTimeout(bigShake, 250); }
+  if (tier === 4) { stamp('惊天动地！', 'gold'); SFX.fanfare(); setTimeout(() => SFX.fanfare(), 300); flash('rgba(255,240,200,.6)'); sparks(pane, 70, '#ffe7a0'); setTimeout(() => sparks(pane, 50, '#ff8a6a'), 250); setTimeout(bigShake, 200); setTimeout(bigShake, 500); }
+  const before = m.score;
+  const cm = commitPlay(r, sel);
+  m.last = { type: r.c.type, tags: r.c.tags, total: r.total };
+  await wsl(500 + tier * 250);
+  animateScore(before, before + r.total);
+  if (cm.huAdd) {
+    await sleep(500);
+    const add = cm.huAdd;
+    stamp('胡！', 'gold'); SFX.fanfare(); bigShake(); say('hu', 6500);
+    if (has('pangxie')) { const el = document.getElementById('money'); if (el) { el.textContent = G.money; popAt(el, '+$5 螃蟹宴', 'gold'); } SFX.coin(); }
+    toast('胡牌！', `四组面子加一对雀头凑齐了，这一场的分数翻倍：+${add}`);
+    animateScore(m.score - add, m.score);
+    await sleep(1400);
+  }
+  await sleep(ui.fast ? 100 : 500);
+  ui.fast = false;
+  setHeat(0);
+  // 够分了：到过关线、又领先三家，立刻过关，剩下的亮牌每次 +$1
+  if (m.score >= lineOf() && m.score > oppMax()) {
+    m.earlyLeft = m.plays; m.table = []; m.phase = 'discard'; save(); render();
+    stamp('过关！', 'gold'); SFX.fanfare(); bigShake();
+    toast('够分了，提前过关', m.plays ? `过关线 ${fmt(lineOf())}，你 ${fmt(m.score)}。省下 ${m.plays} 次亮牌，每次 +$1。` : `过关线 ${fmt(lineOf())}，你 ${fmt(m.score)}。`);
+    await sleep(1500);
+    return endMatch2(true);
+  }
+  // 补牌
+  m.table = []; m.phase = 'discard';
+  drawTo(handSize());
+  save(); render();
+  await oppTurn();
+  if (m.plays <= 0) { await sleep(400); return endMatch2(m.score > oppMax()); }
+  lowPlayWarn();
+}
+// 计分时点一下屏幕：直接跳到结果
+document.addEventListener('click', e => { if (G && G.m && G.m.phase === 'scoring' && ui.busy && !e.target.closest('#tut')) ui.fast = true; }, true);
 
 // ================= 2.13 每日一局 · 留名与排行榜 =================
 
@@ -5139,7 +5519,7 @@ function runRecord() {
 }
 const better = (a, b) => !b || a.won > b.won || (a.won === b.won && a.total > b.total);
 const cmpRec = (a, b) => b.won - a.won || b.total - a.total;
-function recLabel(r) { const rd = Math.min(ROUNDS, Math.floor(r.won / 3) + 1); return r.win ? '通关' : `过 ${r.won} 场 · 第 ${rd} 回`; }
+function recLabel(r) { const rd = Math.floor(r.won / 3) + 1; if (r.won > 18) return `无尽 · 第 ${rd} 回`; return r.win || r.won >= 18 ? '通关' : `过 ${r.won} 场 · 第 ${rd} 回`; }
 
 // 本机榜（离线版、或这个页面写不了共享榜时用）
 const BOARD_KEY = 'dgy-board';
@@ -5184,7 +5564,7 @@ setTimeout(lbInit, 50);
 function cleanRec(r, name) {
   if (!r || typeof r !== 'object') return null;
   const char = CHARACTERS.some(c => c.id === r.char) ? r.char : CHARACTERS[0].id;
-  return { name: String(name || r.name || '无名氏').slice(0, 16), char, won: Math.max(0, Math.min(18, r.won | 0)), total: Math.max(0, Math.round(+r.total || 0)), win: r.win === true, date: typeof r.date === 'string' ? r.date.slice(0, 10) : null };
+  return { name: String(name || r.name || '无名氏').slice(0, 16), char, won: Math.max(0, Math.min(999, r.won | 0)), total: Math.max(0, Math.round(+r.total || 0)), win: r.win === true, date: typeof r.date === 'string' ? r.date.slice(0, 10) : null };
 }
 function boardRows(kind) {
   const today = todayCN();
@@ -5255,7 +5635,7 @@ function nameField(label) { return `<label class="pname"><span>${label}</span><i
     const d = todayCN(), dc = charById(dailyChar(d)), done = dailyDone(d);
     return _viewTitle()
       .replace('<button class="btn red" data-act="go-select">开新的一局</button>', `<button class="btn red" data-act="go-select">开新的一局</button><button class="btn gold" data-act="daily"${tip(`今天全国的玩家拿同一副牌、同一个人物，比谁走得远。每天只算第一次。今天的人物：${dc.name} ·「${dc.skill}」${dc.desc}`)}>每日一局 · ${esc(dc.name)}${done ? '（已打过，再打算练习）' : ''}</button><button class="btn" data-act="board">排行榜</button>`)
-      .replace('<div class="row center">' + muteBtn() + '</div>', `<div class="row center">${nameField('你的名号')}</div><div class="row center">${muteBtn()}</div>`);
+;  // 2.25 名号改成第一次进游戏时取，标题页不再放输入框
   };
   const _viewEnd = viewEnd;
   viewEnd = function (win) {
@@ -5267,7 +5647,7 @@ function nameField(label) { return `<label class="pname"><span>${label}</span><i
     const panel = `<div class="card lbend"><h3>${head}</h3>
       <div class="lbstat"><div><small>走到</small><b>${recLabel(rec)}</b></div><div><small>总分</small><b>${num(rec.total)}</b></div><div><small>名次</small><b>${rk.rank} / ${rk.n}</b></div></div>
       <p class="small">${rk.n > 1 ? `你超过了 ${rk.beat}% 的玩家。` : '你是第一个留名的。'}${G.practice ? '今天的每日一局之前打过了，这局只算练习。' : ''}</p>
-      ${G.submitted ? `<p class="lbok">已留名：<span class="lbname"></span></p>` : `<div class="row center">${nameField('名号')}<button class="btn red" data-act="lb-submit"${G.practice ? ' disabled' : ''}>留名上榜</button></div>`}
+      ${G.submitted ? `<p class="lbok">已留名：<span class="lbname"></span></p>` : `<div class="row center"><span class="small">以「${esc(myName() || '无名氏')}」</span><button class="btn red" data-act="lb-submit"${G.practice ? ' disabled' : ''}>留名上榜</button></div>`}
       <div class="row center"><button class="btn" data-act="board">看排行榜</button><button class="btn ghost" data-act="share-copy" data-share="${esc(share)}">复制战绩</button></div></div>`;
     return _viewEnd(win).replace('<div class="row center"><button class="btn red" data-act="go-select">', panel + '<div class="row center"><button class="btn red" data-act="go-select">');
   };
@@ -5291,8 +5671,8 @@ function nameField(label) { return `<label class="pname"><span>${label}</span><i
   };
 }
 
-// ================= 首局引导（2.12，仿《小丑牌》开局教程） =================
-// 做法和《小丑牌》一样：
+// ================= 首局引导（2.12，开局教程） =================
+// 做法：
 //  1. 第一次开局自动进入；整个画面压暗，只有该点的东西亮着，别处点了没反应。2.22 起随时可以「退出引导」（或按 Esc）。
 //  2. 头两场的牌是排好的（固定手牌、固定摸牌顺序、三家不碰不吃），保证照着做就能过。
 //  3. 集市的货也是排好的：一件珍玩、一张签、一张谱，强制买前两样。
@@ -5344,6 +5724,7 @@ function tutRigMatch() {
     const hand = tutDeal(H, [10, 22, 4, 15, 25, 6], [1, 0, 2]);
     TUT.ids.jiu = tIdsOf(hand, [26])[0];
     TUT.ids.chow = tIdsOf(hand, [23, 24, 26]);
+    G.m.line = 360; // 2.25 引导改用黛玉（没有冷香的 +3 番）：第二场过关线定在 360，一手顺子正好过
   }
   save(); render();
 }
@@ -5373,33 +5754,33 @@ const tPickIs = ids => { const p = (ui.pick || []).slice().sort(), q = ids.slice
 const TSTEPS = [
   { on: 'title', next: '好', text: '我是鸳鸯，老太太屋里管牌的。今儿我当令官，教你打这园子里的牌。不想听了，随时点右上角「退出引导」。<q>酒令大如军令，不论尊卑，惟我是主。违了我的话，是要受罚的。</q><small>第四十回 · 鸳鸯给刘姥姥宣牙牌令前立的规矩</small>' },
   { on: 'title', t: () => ['[data-act="go-select"]'], done: () => tW() === 'select', text: '点「开新的一局」。' },
-  { on: 'select', t: () => ['.ccard[data-id="baochai"]'], done: () => ui.pickChar === 'baochai', text: '头一局，你替宝姑娘打。她的本事叫「冷香」：这一场还没弃过牌时，每次亮牌 +3 番。点她。' },
+  { on: 'select', t: () => ['.ccard[data-id="daiyu"]'], allow: () => ['.chars'], done: () => ui.pickChar === 'daiyu', text: '头一局，你替林姑娘打。她的本事叫「葬花」：每弃掉一张牌，手里同花色的牌这一场点数 +3。点她。<small>往左滑还能看到王熙凤、薛宝钗、史湘云：按书里出场的先后，用上一位打到第几回，就解锁下一位。</small>' },
   { on: 'select', t: () => ['[data-act="start"]'], done: () => G && G.m && tW() === 'match', text: '点「入局」。' },
   { on: 'match', pre: tIdle, t: () => ['.scard'], next: '接着说', text: '这是牌桌。你坐南边，对面三家：下家平儿、对家是我、上家宝玉。' },
   { on: 'match', pre: tIdle, t: () => ['.scard'], next: '接着说', text: '三家不是摆设。你每亮一次、弃一次牌，她们各摸一张，凑出面子也亮出来得分。卡上写的「在凑」，是她们想要的花色。' },
   { on: 'match', pre: tIdle, t: () => ['.score2'], next: '明白', text: () => `${typeof PHONE_ON !== 'undefined' && PHONE_ON ? '这一栏' : '左边'}是比分：最高的对手、你、过关线。这一场过关线 ${num(lineOf())}。<b>到线，又比三家都高，当场过关。</b>` },
   { on: 'match', pre: tIdle, t: () => tSel(TUT.ids.pung), done: () => tPickIs(TUT.ids.pung), text: '先挑这三张二筒。三张一样的牌叫「刻子」。点一张牌就选上，再点一下放下。' },
-  { on: 'match', pre: tIdle, t: () => ['.pv'], next: '看明白了', text: '选好了，这一行替你算账：牌型「刻子」，<b>筹码 × 番</b> ≈ 这一手的分。宝姑娘的冷香 +3 番也算进去了。' },
+  { on: 'match', pre: tIdle, t: () => ['.pv'], next: '看明白了', text: '选好了，这一行替你算账：牌型「刻子」，<b>筹码 × 番</b> ≈ 这一手的分。' },
   { on: 'match', pre: tIdle, t: () => ['[data-act="play"]'], done: () => G.m.playN >= 1 && tIdle(), text: '点「亮牌」，亮出去就进账。' },
-  { on: 'match', pre: tIdle, t: () => ['.score2', '.huprog'], next: '接着说', text: '392 分进账。亮出去的牌摆在你面前，算进「胡牌进度」：几次亮牌加起来凑够 4 组面子和 1 对雀头，就算胡，这一场的分数翻倍。' },
+  { on: 'match', pre: tIdle, t: () => ['.score2', '.huprog'], next: '接着说', text: () => `${num(G.m.score)} 分进账。亮出去的牌摆在你面前，算进「胡牌进度」：几次亮牌加起来凑够 4 组面子和 1 对雀头，就算胡，这一场的分数翻倍。` },
   { on: 'match', pre: tIdle, t: () => tSel(TUT.ids.junk), done: () => tPickIs(TUT.ids.junk), text: '再看这三张：一万、六万、九条，散着凑不成什么。挑出来。' },
-  { on: 'match', pre: tIdle, t: () => ['[data-act="swap2"]'], done: () => G.m.swappedN > 0 && tIdle(), text: '点「弃牌」，换三张新的。<b>小心点炮：</b>弃掉的牌，三家手里要是有一对就会碰走，她得分，你还要付她一半。弃之前看清她们「在凑」什么。这三张她们不要，放心弃。' },
-  { on: 'match', pre: tIdle, t: () => tSel(TUT.ids.keep2.concat([TUT.ids.wu])), done: () => tPickIs(TUT.ids.keep2.concat([TUT.ids.wu])), text: '摸进一张五条！三四五条连着叫「顺子」，再带上这对八万：一组面子加一对雀头，番更高。挑这五张。（弃过牌，冷香的 +3 番就没了。宝姑娘的本事，要你忍着不弃。）' },
+  { on: 'match', pre: tIdle, t: () => ['[data-act="swap2"]'], done: () => G.m.swappedN > 0 && tIdle(), text: '点「弃牌」，换三张新的。<b>小心点炮：</b>弃掉的牌，三家手里要是有一对就会碰走，她得分，你还要付她一半。弃之前看清她们「在凑」什么。这三张她们不要，放心弃。<br>林姑娘的<b>葬花</b>也在这时起作用：弃掉的万子、条子，会让手里剩下的万子、条子点数涨。' },
+  { on: 'match', pre: tIdle, t: () => tSel(TUT.ids.keep2.concat([TUT.ids.wu])), done: () => tPickIs(TUT.ids.keep2.concat([TUT.ids.wu])), text: '摸进一张五条！三四五条连着叫「顺子」，再带上这对八万：一组面子加一对雀头，番更高。挑这五张。（刚才弃了两张万子、一张条子，葬花让手里的八万、三四条点数都涨了。）' },
   { on: 'match', pre: tIdle, t: () => ['[data-act="play"]'], done: () => tW() === 'result' && tIdle(), text: '亮！' },
   { on: 'result', pre: tIdle, t: () => ['.result .total', '.ledger'], next: '好', text: '到了过关线，又领先三家，这一场当场过关。没用完的两次亮牌，每次给 $1。越快过关越赚。' },
   { on: 'result', t: () => ['.result [data-act="next"]'], done: () => tW() === 'shop', text: '去集市，花银子。' },
-  { on: 'shop', pre: tIdle, t: () => ['.offers:not(.consoffers)'], next: '接着说', text: '这是集市。上面一排是「珍玩」：买了一直生效，最多带 5 件，就像《小丑牌》里的小丑。' },
-  { on: 'shop', t: () => ['[data-act="buy"][data-id="hengwu"]'], done: () => G.treasures.includes('hengwu'), text: '买这块蘅芜石。宝姑娘屋里的东西：每张计分的筒子 +1 番。' },
+  { on: 'shop', pre: tIdle, t: () => ['.offers:not(.consoffers)'], next: '接着说', text: '这是集市。上面一排是「珍玩」：买了一直生效，最多带 5 件。' },
+  { on: 'shop', t: () => ['[data-act="buy"][data-id="hengwu"]'], done: () => G.treasures.includes('hengwu'), text: '买这块蘅芜石。蘅芜苑宝姑娘屋里的东西：每张计分的筒子 +1 番。' },
   { on: 'shop', t: () => ['.slot[data-id="hengwu"]'], next: '好', text: '买下的珍玩摆在这儿。点它能看说明，在集市里还能卖掉（卖一半价）。' },
   { on: 'shop', t: () => ['[data-act="buy-cons"][data-id="q_rank"]'], done: () => (G.cons || []).includes('q_rank'), text: '下面是「签」和「谱」。签是一次性的，留到牌局里改手上的牌，最多带 2 张。买这张进退签：能把一张牌的点数 +1 或 −1。' },
-  { on: 'shop', t: () => ['.consoffers'], allow: () => ['[data-act="buy-cons"]'], next: '知道了', text: '「谱」买下就读，永久升级一种牌型，像《小丑牌》的星球牌。这张顺子谱，买不买随你。' },
+  { on: 'shop', t: () => ['.consoffers'], allow: () => ['[data-act="buy-cons"]'], next: '知道了', text: '「谱」买下就读，永久升级一种牌型。这张顺子谱，买不买随你。' },
   { on: 'shop', t: () => ['[data-act="next-match"]'], done: () => tW() === 'match', text: '每一回三场：普通、精英、坐庄。坐庄的人有怪规矩，打过她，人物的命运就转一次。上面那三盏灯是你的命，没过关灭一盏。点「下一场」。' },
   { on: 'match', pre: tIdle, t: () => ['.cslot:not(.empty)'], done: () => !!ui.useCons, text: '这一场先用签。点你的进退签。' },
   { on: 'match', pre: tIdle, t: () => tSel([TUT.ids.jiu]), done: () => ui.useCons && ui.useCons.picks.includes(TUT.ids.jiu), text: '点这张九筒。' },
   { on: 'match', pre: tIdle, t: () => ['[data-act="cons-opt"][data-d="-1"]'], done: () => !(G.cons || []).length, text: '选 −1：九筒变八筒。' },
-  { on: 'match', pre: tIdle, t: () => tSel(TUT.ids.chow), done: () => tPickIs(TUT.ids.chow), text: '六七八筒，顺子。三张都是筒子，蘅芜石每张 +1 番；还没弃过牌，冷香的 +3 番也在。挑这三张。' },
+  { on: 'match', pre: tIdle, t: () => tSel(TUT.ids.chow), done: () => tPickIs(TUT.ids.chow), text: '六七八筒，顺子。三张都是筒子，蘅芜石每张 +1 番。挑这三张。' },
   { on: 'match', pre: tIdle, t: () => ['[data-act="play"]'], done: () => G.m.playN >= 1 && tIdle() && (tW() === 'result' || tW() === 'match'), text: '亮！' },
-  { on: '*', pre: tIdle, next: '我自己来', text: () => tW() === 'result' ? '一手就过了精英场。签、珍玩、冷香叠在一起，就是这么算的。往后的牌你自己打。<b>酒令说完了。</b>' : '往后的牌你自己打。<b>酒令说完了。</b>', end: true },
+  { on: '*', pre: tIdle, next: '我自己来', text: () => tW() === 'result' ? '一手就过了精英场。签和珍玩叠在一起，就是这么算的。往后的牌你自己打。<b>酒令说完了。</b>' : '往后的牌你自己打。<b>酒令说完了。</b>', end: true },
 ];
 
 // ---- 画面 ----
@@ -5479,7 +5860,7 @@ window.addEventListener('resize', () => { TUT.built = -1; tutTick(); });
 
 // ---- 只放行该点的地方 ----
 function tutBlock(e) {
-  if (!TUT.on) return;
+  if (!TUT.on || app.dataset.screen === 'name') return; // 2.25 先取名号，引导等着
   if (tutEl && e.target.closest && e.target.closest('#tut .tutbox, #tut .tutx')) return;
   const s = tutStep();
   const ready = s && (s.on === '*' || tW() === s.on) && (!s.pre || s.pre());
@@ -5490,7 +5871,7 @@ function tutBlock(e) {
   if (e.type === 'click' && tutEl && ready) { const b = tutEl.querySelector('.tutbox'); b.classList.remove('nudge'); void b.offsetWidth; b.classList.add('nudge'); }
 }
 ['click', 'pointerdown', 'mousedown', 'touchstart'].forEach(t => window.addEventListener(t, tutBlock, true));
-window.addEventListener('keydown', e => { if (TUT.on) { e.stopPropagation(); e.preventDefault(); if (e.key === 'Escape') tutQuit(); } }, true);
+window.addEventListener('keydown', e => { if (TUT.on && app.dataset.screen !== 'name') { e.stopPropagation(); e.preventDefault(); if (e.key === 'Escape') tutQuit(); } }, true);
 
 // ---- 入口：第一次打开就开始；标题页「重看引导」 ----
 {
@@ -5504,9 +5885,423 @@ window.addEventListener('keydown', e => { if (TUT.on) { e.stopPropagation(); e.p
     return _act(a, b, id);
   };
 }
-setTimeout(() => { const sv = (typeof loadSave === 'function') && loadSave(); const hasRun = sv && sv.v === 2 && !['over', 'win'].includes(sv.screen); if (!tutDone() && !hasRun && app.dataset.screen === 'title') tutStart(); }, 400);
+setTimeout(() => { const sv = (typeof loadSave === 'function') && loadSave(); const hasRun = sv && sv.v === 2 && !['over', 'win'].includes(sv.screen); if (!tutDone() && !hasRun && ['title', 'name'].includes(app.dataset.screen)) tutStart(); }, 400);
 
 // 所有模块都装好后，标题页重画一次（开机时画的是旧的标题页）
+if (['title', 'select', 'over', 'win'].includes(app.dataset.screen)) render();
+
+// ================= 2.25 局外成长：名号、档案、分级成就、解锁、转发、无尽模式、难度 =================
+// 设计依据：Kira/06_游戏设计/麻将Roguelike/局外成长设计_1.0.md（约三分之一一开始锁着，
+// 靠「单手打到多少分」「走到第几关」「攒到多少钱」之类的成就解锁；锁着的不会出现在商店里）
+
+// ---------- 难度（2.25 第六回加难；第七回起是无尽模式） ----------
+// 三家的出分倍率。第 1–6 回是正常一局，第 7 回起每回涨 3 倍、3.5 倍、4 倍……（越往后涨得越快）
+const OPP2 = [0.9, 2.2, 6, 13, 30, 300];
+function oppBase(r) { if (r <= 6) return OPP2[r - 1]; let v = OPP2[5]; for (let k = 7; k <= r; k++) v *= 3 + 0.5 * (k - 7); return v; }
+function oppMult(round, idx) { return oppBase(round) * [1, 1.25, 1.5][idx]; }
+function targetFor(round, idx) { const b = round <= 6 ? BASE_TARGET2[round - 1] : BASE_TARGET2[5] * oppBase(round) / OPP2[5]; return Math.round(b * [1, 1.5, 2][idx] / 10) * 10; }
+['七', '八', '九', '十', '十一', '十二', '十三', '十四', '十五', '十六', '十七', '十八', '十九', '二十'].forEach(c => CN.push(c));
+function cnRound(r) { return CN[r] || String(r); }
+function roundTxt() { return G.round > ROUNDS ? `无尽 · 第 ${G.round} 回` : `第 ${G.round}/${ROUNDS} 回`; }
+function ensureBosses() {
+  if (!G || !G.bosses) return;
+  while (G.bosses.length < G.round) {
+    const pool = BOSSES.map(b => b.id).concat(['jiamu']), last = G.bosses[G.bosses.length - 1];
+    let b; do { b = pool[rnd(pool.length)]; } while (b === last);
+    G.bosses.push(b);
+  }
+}
+
+// ---------- 档案 ----------
+const PROFILE_KEY = 'dgy-profile';
+const PROF = (() => {
+  let p = null; try { p = JSON.parse(localStorage.getItem(PROFILE_KEY)); } catch (e) { }
+  if (!p || p.v !== 1) {
+    p = { v: 1, bestHand: null, bestMatch: null, bestRun: null, lastRun: null, runs: 0, clears: 0, hus: 0, maxMoney: 0, seen: [], tiers: {}, unl: {}, titles: [], at: Date.now() };
+    // 老玩家：本机榜上最好的一局、判词册里改过的判词，都算数
+    try {
+      const b = localBoard(); const best = (b.free || []).filter(r => r.name === myName()).sort((x, y) => y.won - x.won || y.total - x.total)[0];
+      if (best) p.bestRun = { won: best.won, total: best.total, char: best.char, at: Date.now(), endless: false };
+    } catch (e) { }
+  }
+  return p;
+})();
+if (!PROF.charBest) {
+  PROF.charBest = {};
+  try { CHARACTERS.forEach(c => { const k = ((ALBUM.cards || {})[c.id] || []).length, v = (ALBUM.verdict || {})[c.id] ? 18 : 3 * k; if (v) PROF.charBest[c.id] = v; }); } catch (e) { }
+  try { (localBoard().free || []).forEach(r => { if (r && r.char) PROF.charBest[r.char] = Math.max(PROF.charBest[r.char] || 0, r.won | 0); }); } catch (e) { }
+}
+function checkChars(quiet) {
+  const got = [];
+  CHAR_UNL.forEach(u => {
+    const key = unlockKey('c', u.id);
+    if (PROF.unl[key]) return;
+    if (((PROF.charBest || {})[u.need] || 0) >= u.w && (u.need === 'daiyu' || PROF.unl[unlockKey('c', u.need)])) { PROF.unl[key] = Date.now(); got.push(u); }
+  });
+  if (got.length) {
+    saveProf();
+    if (typeof G !== 'undefined' && G) G.newChars = (G.newChars || []).concat(got.map(u => u.id));
+    if (!quiet) got.forEach((u, i) => setTimeout(() => { toast(`新人物 · ${charById(u.id).name}`, `${u.lab}，解锁了。${u.note}`); SFX.fanfare && SFX.fanfare(); }, 900 + i * 1800));
+  }
+}
+function saveProf() { try { localStorage.setItem(PROFILE_KEY, JSON.stringify(PROF)); } catch (e) { } }
+
+// ---------- 分级成就（铜 · 白银 · 黄金 · 白金） ----------
+const TIER = [{ id: 'cu', name: '铜' }, { id: 'ag', name: '白银' }, { id: 'au', name: '黄金' }, { id: 'pt', name: '白金' }];
+function heightLabel(w) { w = w | 0; if (w >= 18) return w === 18 ? '通关' : `无尽 · 第 ${Math.floor(w / 3) + 1} 回`; return `第 ${Math.floor(w / 3) + 1} 回 · 过 ${w} 场`; }
+const TRACKS = [
+  { id: 'hand', name: '一手牌', desc: '单手牌最高分', val: () => (PROF.bestHand || {}).v || 0, at: [1e3, 1e4, 1e5, 1e6], lab: v => num(v) + ' 分',
+    rw: [['t', 'shaoyao'], ['t', 'yingge'], ['t', 'taixu'], ['t', 'yeyan']] },
+  { id: 'match', name: '一场', desc: '单场最高分', val: () => (PROF.bestMatch || {}).v || 0, at: [3e3, 3e4, 3e5, 3e6], lab: v => num(v) + ' 分',
+    rw: [['t', 'jixue'], ['t', 'daguanyuan'], ['t', 'xingqin'], ['t', 'tidui']] },
+  { id: 'height', name: '爬塔', desc: '最远走到', val: () => (PROF.bestRun || {}).won || 0, at: [6, 12, 18, 24], lab: v => ['第 3 回', '第 5 回', '通关第六回', '无尽第 9 回'][[6, 12, 18, 24].indexOf(v)] || heightLabel(v),
+    rw: [['t', 'fenglu'], ['t', 'qunfang'], ['t', 'fengguan'], ['h', '无尽牌桌']] },
+  { id: 'verdict', name: '改命', desc: '改写了判词的人物', val: () => Object.keys(ALBUM.verdict || {}).length, at: [1, 2, 3, 4], lab: v => `${v} 位`,
+    rw: [['t', 'shierchai'], ['t', 'zanghun'], ['t', 'mudan'], ['h', '金陵十二钗']] },
+  { id: 'money', name: '银两', desc: '一局里手上最多的银两', val: () => PROF.maxMoney || 0, at: [30, 60, 120, 250], lab: v => '$' + v,
+    rw: [['t', 'pangxie'], ['t', 'zhangben'], ['t', 'dangpiao'], ['h', '荣府管家']] },
+  { id: 'hu', name: '胡牌', desc: '累计胡牌次数', val: () => PROF.hus || 0, at: [1, 10, 50, 200], lab: v => `${v} 次`,
+    rw: [['t', 'qilin'], ['t', 'xiangling'], ['t', 'buqiu'], ['h', '雀神']] },
+  { id: 'seen', name: '见识', desc: '买过的珍玩种类', val: () => (PROF.seen || []).length, at: [15, 30, 45, 61], lab: v => `${v} 种`,
+    rw: [['y', 'y_ziling'], ['y', 'y_zhuijin'], ['y', 'y_jiayin'], ['h', '博古通今']] },
+];
+// 人物按《红楼梦》出场顺序一个一个解锁：黛玉（第三回进府）→ 王熙凤（第三回「未见其人，先闻其声」）→ 薛宝钗（第四回进京）→ 史湘云（第二十回）
+// 不用通关：用上一位打到第几回，就跳一个成就、解锁下一位
+const CHAR_ORDER = ['daiyu', 'xifeng', 'baochai', 'xiangyun'];
+CHARACTERS.sort((a, b) => CHAR_ORDER.indexOf(a.id) - CHAR_ORDER.indexOf(b.id));
+const CHAR_UNL = [
+  { id: 'xifeng', need: 'daiyu', w: 6, lab: '用林黛玉打到第 3 回', note: '第三回 · 黛玉进府，王熙凤「未见其人，先闻其声」' },
+  { id: 'baochai', need: 'xifeng', w: 9, lab: '用王熙凤打到第 4 回', note: '第四回 · 薛家进京，宝钗住进梨香院' },
+  { id: 'xiangyun', need: 'baochai', w: 12, lab: '用薛宝钗打到第 5 回', note: '第二十回 · 史大姑娘来了' },
+];
+// 一开始锁着的：19 件珍玩（约三分之一）、1 位人物、3 处营造
+const LOCK = { t: new Set(), c: new Set(), y: new Set() };
+TRACKS.forEach(tr => tr.rw.forEach(([k, id]) => { if (LOCK[k]) LOCK[k].add(id); }));
+CHAR_UNL.forEach(u => LOCK.c.add(u.id));
+function unlockKey(k, id) { return k + ':' + id; }
+function isUnl(k, id) { if (!LOCK[k] || !LOCK[k].has(id)) return true; if (typeof G !== 'undefined' && G && G.daily) return true; return !!PROF.unl[unlockKey(k, id)]; }
+function tUnlocked(id) { return isUnl('t', id); }
+function lockReason(k, id) { if (k === 'c') { const u = CHAR_UNL.find(x => x.id === id); if (u) return `${u.lab}（${charById(u.need).name}最远：${heightLabel((PROF.charBest || {})[u.need] || 0)}）`; } for (const tr of TRACKS) { const i = tr.rw.findIndex(([kk, ii]) => kk === k && ii === id); if (i >= 0) return `成就「${tr.name} · ${TIER[i].name}」：${tr.desc}${tr.lab(tr.at[i])}`; } return ''; }
+function rwName([k, id]) { return k === 't' ? TREASURE[id].name : k === 'c' ? charById(id).name : k === 'y' ? YZ[id].name : `称号「${id}」`; }
+function rwKind([k]) { return { t: '珍玩', c: '人物', y: '营造', h: '称号' }[k]; }
+function checkTiers(quiet) {
+  const got = [];
+  for (const tr of TRACKS) {
+    const v = tr.val(); let k = PROF.tiers[tr.id] == null ? -1 : PROF.tiers[tr.id];
+    while (k + 1 < 4 && v >= tr.at[k + 1]) {
+      k++; PROF.tiers[tr.id] = k;
+      const rw = tr.rw[k];
+      if (rw[0] === 'h') { if (!PROF.titles.includes(rw[1])) PROF.titles.push(rw[1]); } else PROF.unl[unlockKey(rw[0], rw[1])] = Date.now();
+      got.push({ tr, k, rw });
+    }
+  }
+  if (got.length) {
+    saveProf();
+    if (typeof G !== 'undefined' && G) { G.newAch = (G.newAch || []).concat(got.map(g => g.tr.id + ':' + g.k)); }
+    if (!quiet) got.forEach((g, i) => setTimeout(() => { toast(`成就 · ${g.tr.name} · ${TIER[g.k].name}`, `${g.tr.desc}：${g.tr.lab(g.tr.at[g.k])}　解锁${rwKind(g.rw)}「${rwName(g.rw)}」`); SFX.fanfare && SFX.fanfare(); }, 600 + i * 1600));
+  }
+  return got;
+}
+checkTiers(true);
+checkChars(true);
+
+// ---------- 记录：一手、一场、一局 ----------
+commitPlay = (orig => function (r, sel) {
+  const out = orig.apply(this, arguments);
+  try {
+    if (G && !G.practice) {
+      const v = Math.round(r.total);
+      G.stats.bestHand = Math.max(G.stats.bestHand || 0, v);
+      if (!PROF.bestHand || v > PROF.bestHand.v) PROF.bestHand = { v, type: PT[r.c.type].name, char: G.char, at: Date.now() };
+      if (out && out.huAdd) PROF.hus = (PROF.hus || 0) + 1;
+      saveProf(); checkTiers();
+    }
+  } catch (e) { console.warn(e); }
+  return out;
+})(commitPlay);
+function noteMoney() { if (G && !G.practice && G.money > (PROF.maxMoney || 0)) { PROF.maxMoney = G.money; saveProf(); checkTiers(); } }
+finish = (orig => function (res, won) {
+  const m = G.m, score = m ? Math.round(m.score) : 0;
+  const out = orig.apply(this, arguments);
+  try {
+    if (!G.practice) {
+      if (!PROF.bestMatch || score > PROF.bestMatch.v) PROF.bestMatch = { v: score, char: G.char, round: G.round, at: Date.now() };
+      PROF.charBest = PROF.charBest || {}; if (G.stats.won > (PROF.charBest[G.char] || 0)) PROF.charBest[G.char] = G.stats.won;
+      if (!PROF.bestRun || G.stats.won > PROF.bestRun.won) PROF.bestRun = { won: G.stats.won, total: Math.round(G.stats.total), char: G.char, at: Date.now(), endless: !!G.endless };
+      saveProf(); noteMoney(); checkTiers(); checkChars();
+    }
+  } catch (e) { console.warn(e); }
+  return out;
+})(finish);
+buy = (orig => function (id, btn) {
+  const had = G.treasures.includes(id);
+  const out = orig.apply(this, arguments);
+  if (!had && G.treasures.includes(id) && !G.practice) { if (!PROF.seen.includes(id)) { PROF.seen.push(id); saveProf(); checkTiers(); } }
+  return out;
+})(buy);
+openShop = (orig => function () { ensureBosses(); const r = orig.apply(this, arguments); noteMoney(); return r; })(openShop);
+startMatch = (orig => function () { ensureBosses(); return orig.apply(this, arguments); })(startMatch);
+function logRun() {
+  if (!G || G.runLogged) return;
+  G.runLogged = true;
+  const rec = { won: G.stats.won, total: Math.round(G.stats.total), char: G.char, bestHand: G.stats.bestHand || 0, at: Date.now(), endless: !!G.endless, round: G.round, win: G.screen === 'win', daily: G.daily || null };
+  if (!G.practice) {
+    PROF.lastRun = rec; PROF.runs = (PROF.runs || 0) + 1; if (rec.won >= 18) PROF.clears = (PROF.clears || 0) + 1;
+    if (!PROF.bestRun || rec.won > PROF.bestRun.won || (rec.won === PROF.bestRun.won && rec.total > (PROF.bestRun.total || 0))) PROF.bestRun = rec;
+    saveProf(); checkTiers();
+  }
+  save();
+}
+
+// ---------- 解锁：锁着的不进集市；图鉴、选人里看得到怎么解锁 ----------
+function rollOffers() {
+  const odds = rarityOdds(), keys = ['white', 'blue', 'gold'], out = [];
+  const ok = t => !G.treasures.includes(t.id) && !out.includes(t.id) && tUnlocked(t.id);
+  for (let k = 0; k < shopSlots(); k++) {
+    let roll = gr() * 100, r = 'white';
+    for (let i = 0; i < 3; i++) { if (roll < odds[i]) { r = keys[i]; break; } roll -= odds[i]; }
+    let pool = TREASURES.filter(t => t.r === r && ok(t));
+    if (!pool.length) pool = TREASURES.filter(ok);
+    if (pool.length) out.push(pool[rnd(pool.length)].id);
+  }
+  return out;
+}
+const LOCK_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>';
+treasureCard = (orig => function (t, mode) {
+  const h = orig.apply(this, arguments);
+  if (mode === 'codex' && !tUnlocked(t.id)) return h.replace('<div class="tcard ', '<div class="tcard locked ').replace(/<\/div>\s*$/, `<div class="tlock">${LOCK_SVG}<span>${esc(lockReason('t', t.id))}</span></div></div>`);
+  return h;
+})(treasureCard);
+viewSelect = (orig => function () {
+  let h = orig.apply(this, arguments);
+  CHARACTERS.forEach(c => {
+    if (isUnl('c', c.id)) return;
+    h = h.replace(`class="ccard ${ui.pickChar === c.id ? 'on' : ''}" data-act="pick-char" data-id="${c.id}">`, `class="ccard locked" data-act="locked-char" data-id="${c.id}">`)
+      .replace(new RegExp(`(data-act="locked-char" data-id="${c.id}">[\\s\\S]*?<div class="art portrait">)`), `$1<div class="clock">${LOCK_SVG}<b>还没解锁</b><span>${esc(lockReason('c', c.id))}</span></div>`);
+  });
+  return h;
+})(viewSelect);
+
+// ---------- 名号：第一次进游戏先取名号 ----------
+function nameGateHTML(edit) {
+  return `<div class="ngate">
+    <div class="title-art">${scene('title')}<div class="logo"><h1>大观园雀局</h1></div></div>
+    <div class="ncard">
+      <h3>${edit ? '改个名号' : '先给自己取个名号'}</h3>
+      <p class="small">名号会写在成就、排行榜和转发给朋友的战绩上。最多 16 个字。</p>
+      <input id="nameInput" maxlength="16" autocomplete="nickname" enterkeyhint="done" placeholder="比如：怡红公子" value="${esc(edit ? myName() : '')}">
+      <div class="row center">${edit ? '<button class="btn ghost" data-act="name-cancel">算了</button>' : ''}<button class="btn red" data-act="name-ok">${edit ? '改好了' : '进园子'}</button></div>
+    </div></div>`;
+}
+render = (orig => function () {
+  if ((screen === 'title' && !myName()) || ui.nameEdit) {
+    phoneSyncSafe();
+    app.innerHTML = nameGateHTML(!!ui.nameEdit && !!myName()); app.dataset.screen = 'name';
+    const f = document.getElementById('nameInput'); if (f && !('ontouchstart' in window)) setTimeout(() => f.focus(), 50);
+    return;
+  }
+  if (G && screen === 'run' && G.screen === 'credits') {
+    phoneSyncSafe(); app.innerHTML = creditsHTML(); app.dataset.screen = 'credits'; try { Live.scan(app); } catch (e) { }
+    clearTimeout(CREDIT_T); CREDIT_T = setTimeout(() => { const c = app.querySelector('.credits'); if (c) c.classList.add('out'); setTimeout(creditsDone, 2200); }, 9000);
+    return;
+  }
+  const r = orig.apply(this, arguments);
+  if (G && ['over', 'win'].includes(G.screen) && screen === 'run' && !G.runLogged) logRun();
+  if (ui.achv) app.insertAdjacentHTML('beforeend', achvHTML());
+  if (ui.shareImg) app.insertAdjacentHTML('beforeend', shareSheetHTML());
+  return r;
+})(render);
+function phoneSyncSafe() { try { if (typeof phoneSync === 'function') phoneSync(); } catch (e) { } }
+document.addEventListener('keydown', e => { if (e.key === 'Enter' && e.target && e.target.id === 'nameInput') { e.preventDefault(); nameOk(); } });
+function nameOk() {
+  const f = document.getElementById('nameInput'); const v = f ? f.value.replace(/\s+/g, ' ').trim() : '';
+  if (!v) { if (f) { shake(f); f.focus(); } toast('名号还空着', '随便写一个就行，以后能改。'); return; }
+  setMyName(v); ui.nameEdit = false; SFX.select(); render();
+}
+
+// ---------- 成就册 ----------
+function recTile(label, big, sub, kind) {
+  return `<div class="rtile"><small>${label}</small><b>${big}</b><span>${sub}</span>${kind ? `<button class="chip pshare" data-act="share" data-id="${kind}">转发</button>` : ''}</div>`;
+}
+function achvHTML() {
+  const P = PROF, bh = P.bestHand, bm = P.bestMatch, br = P.bestRun, lr = P.lastRun;
+  const recs = [
+    recTile('一手牌最高', bh ? num(bh.v) : '—', bh ? `${esc(charById(bh.char).name)} · ${esc(bh.type)}` : '还没打过', bh && 'hand'),
+    recTile('一场最高', bm ? num(bm.v) : '—', bm ? `${esc(charById(bm.char).name)} · 第 ${bm.round} 回` : '还没打过', bm && 'match'),
+    recTile('最远走到', br ? heightLabel(br.won) : '—', br ? `${esc(charById(br.char).name)} · 总分 ${num(br.total || 0)}` : '还没打完一局', br && 'height'),
+    recTile('上一局', lr ? heightLabel(lr.won) : '—', lr ? `${esc(charById(lr.char).name)} · 最好的一手 ${num(lr.bestHand || 0)}` : '还没打完一局', lr && 'last'),
+  ].join('');
+  const tracks = TRACKS.map(tr => {
+    const v = tr.val(), k = PROF.tiers[tr.id] == null ? -1 : PROF.tiers[tr.id];
+    const cards = TIER.map((ti, i) => {
+      const lit = i <= k, rw = tr.rw[i];
+      return `<button class="acard2 t-${ti.id} ${lit ? 'lit' : ''}" ${lit ? `data-act="share" data-id="ach:${tr.id}:${i}"` : `data-act="noop"`} aria-label="${tr.name}${ti.name}：${tr.lab(tr.at[i])}${lit ? '（已点亮，点一下转发）' : ''}">
+        <i class="medal">${ti.name}</i><b>${tr.lab(tr.at[i])}</b><span class="rw">${lit ? '' : LOCK_SVG}${rwKind(rw)} · ${esc(rwName(rw))}</span></button>`;
+    }).join('');
+    return `<div class="track"><div class="trh"><b>${tr.name}</b><small>${tr.desc} · 现在 <em>${tr.id === 'height' ? heightLabel(v) : tr.lab(v).replace(/^(\d+ (位|次|种))$/, '$1')}</em></small></div><div class="tiers">${cards}</div></div>`;
+  }).join('');
+  const nLit = Object.values(PROF.tiers).reduce((a, k) => a + k + 1, 0);
+  const nUnl = [...LOCK.t].filter(id => PROF.unl[unlockKey('t', id)]).length;
+  return `<div class="ov" role="dialog" aria-label="成就"><div class="card achv">
+    <div class="achh"><h3>成就</h3><span class="small">${esc(myName() || '无名氏')}${PROF.titles.length ? ' · ' + PROF.titles.map(esc).join(' · ') : ''}</span><button class="chip" data-act="rename">改名号</button></div>
+    <div class="recs">${recs}</div>
+    <p class="small">点亮 ${nLit}/28 · 解锁珍玩 ${nUnl}/${LOCK.t.size}。每一级成就都会解锁新的珍玩、人物或营造：解锁之后，下一局集市里才可能出现。</p>
+    <div class="track"><div class="trh"><b>人物</b><small>按《红楼梦》出场的先后，一位一位解锁</small></div><div class="tiers chars4">${CHARACTERS.map(c => { const u = CHAR_UNL.find(x => x.id === c.id), ok = isUnl('c', c.id); return `<div class="acard2 ${ok ? 'lit t-au' : ''}"><i class="medal">${ok ? '已解锁' : '未解锁'}</i><b>${esc(c.name)}</b><span class="rw">${ok ? `最远 ${heightLabel((PROF.charBest || {})[c.id] || 0)}` : LOCK_SVG + esc(u ? u.lab : '')}</span></div>`; }).join('')}</div></div>
+    <div class="tracks">${tracks}</div>
+    <div class="row center"><button class="btn red" data-act="achv-close">合上</button></div></div></div>`;
+}
+
+// ---------- 一键转发：生成一张战绩图，手机上直接调系统分享；不支持的就显示图片 + 复制文字 ----------
+const SHARE_URL = 'https://chuyuanwritings-max.github.io/daguanyuan-queju/';
+function shareInfo(kind) {
+  const P = PROF, nm = myName() || '无名氏';
+  if (kind === 'hand' && P.bestHand) return { head: '一手牌最高分', big: num(P.bestHand.v), sub: `${charById(P.bestHand.char).name} · ${P.bestHand.type}`, char: P.bestHand.char, text: `我在《大观园雀局》一手牌打出了 ${num(P.bestHand.v)} 分！` };
+  if (kind === 'match' && P.bestMatch) return { head: '一场最高分', big: num(P.bestMatch.v), sub: `${charById(P.bestMatch.char).name} · 第 ${P.bestMatch.round} 回`, char: P.bestMatch.char, text: `我在《大观园雀局》一场打出了 ${num(P.bestMatch.v)} 分！` };
+  if (kind === 'height' && P.bestRun) return { head: '最远走到', big: heightLabel(P.bestRun.won), sub: `${charById(P.bestRun.char).name} · 总分 ${num(P.bestRun.total || 0)}`, char: P.bestRun.char, text: `我在《大观园雀局》最远走到了${heightLabel(P.bestRun.won)}，总分 ${num(P.bestRun.total || 0)}。` };
+  if ((kind === 'last' || kind === 'run') && (kind === 'run' ? G : P.lastRun)) {
+    const r = kind === 'run' ? { won: G.stats.won, total: G.stats.total, char: G.char, bestHand: G.stats.bestHand || 0 } : P.lastRun;
+    return { head: kind === 'run' ? '这一局' : '上一局', big: heightLabel(r.won), sub: `${charById(r.char).name} · 总分 ${num(r.total || 0)} · 最好的一手 ${num(r.bestHand || 0)}`, char: r.char, text: `我在《大观园雀局》这一局走到了${heightLabel(r.won)}，总分 ${num(r.total || 0)}。你能走多远？` };
+  }
+  if (kind.startsWith('ach:')) {
+    const [, tid, ks] = kind.split(':'), tr = TRACKS.find(t => t.id === tid), k = +ks;
+    if (tr && PROF.tiers[tid] >= k) return { head: `成就 · ${TIER[k].name}`, big: `${tr.name} · ${tr.lab(tr.at[k])}`, sub: `${tr.desc} · 解锁${rwKind(tr.rw[k])}「${rwName(tr.rw[k])}」`, char: (P.bestRun || P.bestHand || {}).char || 'baochai', tier: TIER[k].id, text: `我在《大观园雀局》点亮了「${tr.name} · ${TIER[k].name}」成就：${tr.desc}${tr.lab(tr.at[k])}。` };
+  }
+  return null;
+}
+function loadImg(src) { return new Promise(res => { const im = new Image(); im.onload = () => res(im); im.onerror = () => res(null); im.src = src; }); }
+async function shareCard(info) {
+  const W = 1080, H = 1350, c = document.createElement('canvas'); c.width = W; c.height = H;
+  const x = c.getContext('2d');
+  const gold = '#e2b85c', ivory = '#f1e5ca', tierCol = { cu: '#c98a4f', ag: '#d5dde2', au: '#f2c14e', pt: '#9fe8e0' }[info.tier] || gold;
+  x.fillStyle = '#100c09'; x.fillRect(0, 0, W, H);
+  const pic = await loadImg(storySrc ? storySrc(info.char) : imgSrc(info.char));
+  if (pic) { const s = Math.max(W / pic.width, 760 / pic.height); const w = pic.width * s, h = pic.height * s; x.drawImage(pic, (W - w) / 2, 0, w, h); }
+  const g = x.createLinearGradient(0, 380, 0, 860); g.addColorStop(0, 'rgba(16,12,9,0)'); g.addColorStop(1, 'rgba(16,12,9,1)'); x.fillStyle = g; x.fillRect(0, 380, W, 480);
+  x.fillStyle = '#100c09'; x.fillRect(0, 860, W, H - 860);
+  const serif = '"Noto Serif SC","Songti SC","STSong",serif';
+  x.textAlign = 'center';
+  x.fillStyle = ivory; x.font = `900 64px ${serif}`; x.fillText('大观园雀局', W / 2, 110);
+  x.fillStyle = 'rgba(241,229,202,.6)'; x.font = `400 30px ${serif}`; x.fillText('摸、打、亮、胡，替她们改一回命', W / 2, 160);
+  x.strokeStyle = tierCol; x.lineWidth = 4; x.strokeRect(60, 820, W - 120, 380);
+  x.fillStyle = tierCol; x.font = `700 44px ${serif}`; x.fillText(info.head, W / 2, 900);
+  let fs = 132; x.font = `900 ${fs}px ${serif}`; while (x.measureText(info.big).width > W - 180 && fs > 50) { fs -= 6; x.font = `900 ${fs}px ${serif}`; }
+  x.fillStyle = ivory; x.fillText(info.big, W / 2, 900 + 30 + fs);
+  x.fillStyle = 'rgba(241,229,202,.75)'; x.font = `400 34px ${serif}`; x.fillText(info.sub.slice(0, 32), W / 2, 1150);
+  x.fillStyle = gold; x.font = `700 38px ${serif}`; x.fillText(`— ${myName() || '无名氏'} —`, W / 2, 1262);
+  x.fillStyle = 'rgba(241,229,202,.5)'; x.font = `400 26px ${serif}`; x.fillText(SHARE_URL.replace('https://', ''), W / 2, 1312);
+  return new Promise(res => c.toBlob(b => res({ blob: b, url: c.toDataURL('image/png') }), 'image/png'));
+}
+async function doShare(kind) {
+  const info = shareInfo(kind); if (!info) { toast('还没有可以转发的', '先打一局吧。'); return; }
+  const text = `${info.text}\n来大观园打一局：${SHARE_URL}`;
+  let card = null; try { card = await shareCard(info); } catch (e) { console.warn(e); }
+  try {
+    if (card && card.blob && navigator.canShare) {
+      const file = new File([card.blob], 'daguanyuan.png', { type: 'image/png' });
+      if (navigator.canShare({ files: [file] })) { await navigator.share({ files: [file], text, title: '大观园雀局' }); return; }
+    }
+    if (navigator.share && !card) { await navigator.share({ text, url: SHARE_URL, title: '大观园雀局' }); return; }
+  } catch (e) { if (e && e.name === 'AbortError') return; }
+  ui.shareImg = { url: card ? card.url : null, text }; render();
+}
+function shareSheetHTML() {
+  const s = ui.shareImg;
+  return `<div class="ov sharev" role="dialog" aria-label="转发"><div class="card sharecard">
+    <h3>转发</h3>
+    ${s.url ? `<img class="shareimg" src="${s.url}" alt="战绩图"><p class="small">手机上长按图片可以存到相册或直接发给朋友；电脑上点「存图片」。</p>` : ''}
+    <p class="sharetx">${esc(s.text)}</p>
+    <div class="row center">${s.url ? `<a class="btn" href="${s.url}" download="大观园雀局.png">存图片</a>` : ''}<button class="btn" data-act="share-text">复制文字</button><button class="btn red" data-act="share-close">好了</button></div></div></div>`;
+}
+
+
+// ---------- 通关后的制作者名单：宝钗微笑（没在游戏里出现过的一张），淡入淡出，底下一行小字 ----------
+let CREDIT_T = null;
+function creditsHTML() {
+  return `<div class="credits" data-act="credits-skip" role="dialog" aria-label="制作者名单">
+    <div class="crimg"><img class="story" src="${imgSrc('credits_baochai')}" data-live="credits_baochai" alt="宝钗在柳树下笑"></div>
+    <p class="crtx">谢谢你玩我们的游戏<span>— Cc, Lxb</span></p>
+  </div>`;
+}
+function creditsDone() { clearTimeout(CREDIT_T); if (!G || G.screen !== 'credits') return; G.screen = 'win'; save(); render(); }
+
+// ---------- 无尽模式：第六回之后接着往上爬 ----------
+viewEnd = (orig => function (win) {
+  let h = orig.apply(this, arguments);
+  const NA = G.newAch || [], NC = (G.newChars || []).map(id => `<li><i class="medal t-au">人物</i>解锁${esc(charById(id).name)}</li>`).join('');
+  const newA = NA.slice(-3).map(s => { const [tid, k] = s.split(':'); const tr = TRACKS.find(t => t.id === tid); return tr ? `<li><i class="medal t-${TIER[k].id}">${TIER[k].name}</i>${tr.name} · ${tr.lab(tr.at[k])} <small>解锁${rwKind(tr.rw[k])}「${esc(rwName(tr.rw[k]))}」</small></li>` : ''; }).join('');
+  const extra = `<div class="row center endshare"><button class="btn gold" data-act="share" data-id="run">转发这一局</button>${win && !G.daily ? `<button class="btn red" data-act="endless-go">接着打 · 无尽模式（第七回起）</button>` : ''}<button class="btn" data-act="achv">成就</button></div>
+    ${newA || NC ? `<div class="card newach"><b>这一局新点亮 ${NA.length} 项成就${NC ? '，来了新人物' : ''}</b>${NA.length > 3 ? '<small>（下面是最后 3 项，全部在「成就」里）</small>' : ''}<ul>${NC}${newA}</ul></div>` : ''}`;
+  if (G.endless && !win) h = h.replace(/走到第 (\d+) 回/, (s, r) => `无尽模式走到第 ${r} 回`);
+  return h.replace('<div class="row center"><button class="btn red" data-act="go-select">', extra + '<div class="row center"><button class="btn red" data-act="go-select">');
+})(viewEnd);
+function goEndless() {
+  if (!G || G.screen !== 'win' || G.daily) return;
+  G.endless = true; G.round = ROUNDS + 1; G.idx = 0; G.runLogged = false; G.newAch = [];
+  ensureBosses(); SFX.fanfare(); toast('无尽模式', '第七回起，三家每回都更狠。灯灭了就停在那一回。');
+  openShop();
+}
+
+
+// ---------- 无尽模式的坐庄（第七回起才会遇到） ----------
+const ENDLESS_BOSSES = [
+  { id: 'wangshanbao', name: '王善保家的', roman: 'Wang Shanbao\'s Wife', endless: true, rule: '抄检大观园：开局随机封住你一件珍玩，这一场它不起作用' },
+  { id: 'yucun', name: '贾雨村', roman: 'Jia Yucun', endless: true, rule: '乱判葫芦案：番种一律不加番' },
+  { id: 'jinghuan', name: '警幻仙姑', roman: 'Disenchantment', endless: true, rule: '太虚幻境：这一场手牌上限 −2' },
+  { id: 'jinyi', name: '锦衣军', roman: 'Imperial Guards', endless: true, rule: '抄家：开局拿走你一半银两，过关才还回来' },
+];
+Object.assign(SEAT_GLYPH, { wangshanbao: '抄', yucun: '雨', jinghuan: '幻', jinyi: '锦' });
+function bossById(id) { return id === 'jiamu' ? FINAL_BOSS : BOSSES.find(b => b.id === id) || ENDLESS_BOSSES.find(b => b.id === id); }
+function ensureBosses() {
+  if (!G || !G.bosses) return;
+  while (G.bosses.length < G.round) {
+    const r = G.bosses.length + 1;
+    const pool = r > ROUNDS ? ENDLESS_BOSSES.map(b => b.id) : BOSSES.map(b => b.id).concat(['jiamu']), last = G.bosses[G.bosses.length - 1];
+    let b; do { b = pool[rnd(pool.length)]; } while (b === last && pool.length > 1);
+    G.bosses.push(b);
+  }
+}
+handSize = (orig => function () { return orig.apply(this, arguments) - (G && G.m && G.m.boss === 'jinghuan' ? 2 : 0); })(handSize);
+startMatch = (orig => function () {
+  const r = orig.apply(this, arguments);
+  const m = G && G.m;
+  if (m && m.boss === 'wangshanbao' && G.treasures.length) { m.sealed = G.treasures[rnd(G.treasures.length)]; save(); setTimeout(() => toast('抄检大观园', `${TREASURE[m.sealed].name}被封住了，这一场不起作用。`), 900); }
+  if (m && m.boss === 'jinyi' && G.money > 1) { m.taken = Math.floor(G.money / 2); G.money -= m.taken; save(); setTimeout(() => toast('锦衣军抄家', `拿走 $${m.taken}，过了这一关才还你。`), 900); }
+  if (m && m.boss === 'jinghuan') { while (m.hand.length > handSize()) { const x = m.hand.pop(); m.deck.push(x); } save(); render(); }
+  return r;
+})(startMatch);
+finish = (orig => function (res, won) {
+  const m = G.m;
+  if (m && m.taken) { const pass = res.total >= Math.max(1, oppMax() + 1) && res.total > 0; if (pass) { G.money += m.taken; setTimeout(() => toast('银两还回来了', `锦衣军还你 $${m.taken}。`), 1200); } m.taken = 0; }
+  return orig.apply(this, arguments);
+})(finish);
+shelfHTML = (orig => function () {
+  const h = orig.apply(this, arguments), s = G && G.m && G.screen === 'match' && G.m.sealed;
+  return s ? h.replace(`data-id="${s}"`, `data-id="${s}" data-sealed="1"`) : h;
+})(shelfHTML);
+
+// ---------- 按钮 ----------
+CORE2_ACT = (orig => function (a, b, id) {
+  switch (a) {
+    case 'name-ok': nameOk(); return true;
+    case 'name-cancel': ui.nameEdit = false; render(); return true;
+    case 'rename': ui.achv = false; ui.nameEdit = true; render(); return true;
+    case 'achv': ui.achv = true; ui.pmenu = false; SFX.brush(); render(); return true;
+    case 'achv-close': ui.achv = false; render(); return true;
+    case 'share': doShare(String(id)); return true;
+    case 'share-close': ui.shareImg = null; render(); return true;
+    case 'share-text': { const t = (ui.shareImg || {}).text || ''; try { navigator.clipboard.writeText(t).then(() => toast('文字已复制', '粘贴到微信发给朋友。'), () => toast('复制不了', '长按上面的文字自己复制。')); } catch (e) { toast('复制不了', '长按上面的文字自己复制。'); } return true; }
+    case 'endless-go': goEndless(); return true;
+    case 'verdict-next': if (!G.credited && !G.endless) { G.credited = true; G.screen = 'credits'; save(); render(); return true; } break;
+    case 'credits-skip': { const c = app.querySelector('.credits'); if (c && !c.classList.contains('out')) { c.classList.add('out'); clearTimeout(CREDIT_T); setTimeout(creditsDone, 900); } return true; }
+    case 'locked-char': { SFX.buzz(); shake(b); toast(`${charById(id).name}还没解锁`, lockReason('c', id)); return true; }
+    case 'start': if (ui.pickChar && !isUnl('c', ui.pickChar)) { SFX.buzz(); return true; } break;
+  }
+  return orig.apply(this, arguments);
+})(CORE2_ACT);
+// 标题页：加「成就」按钮
+viewTitle = (orig => function () { return orig.apply(this, arguments).replace('<button class="btn" data-act="album">判词册</button>', '<button class="btn" data-act="achv">成就</button><button class="btn" data-act="album">判词册</button>'); })(viewTitle);
+
+// 所有模块装好后重画一次（开机时画的标题页还没有名号门和「成就」按钮）
 if (['title', 'select', 'over', 'win'].includes(app.dataset.screen)) render();
 
 // ================= 2.24 手机竖屏版 =================
@@ -5537,7 +6332,7 @@ function phoneTopHTML() {
   return `<header class="ptop">
     <div class="pbar1">
       <button class="pmenu" data-act="pmenu" aria-label="菜单"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
-      <div class="pttl"><b>第${CN[G.round] || G.round}回 · ${kind.name}</b><small>${esc(g.name)} · 本回第 ${G.idx + 1} / 3 场</small></div>
+      <div class="pttl"><b>${G.round > ROUNDS ? '无尽 · ' : ''}第${CN[G.round] || G.round}回 · ${kind.name}</b><small>${esc(g.name)} · 本回第 ${G.idx + 1} / 3 场</small></div>
       <span class="plamps"${tip(gloss('灯'))}>${lampsHTML()}</span>
       <span class="pmoney"${tip(gloss('银两') + ' ' + interestText())}><b id="money">${G.money}</b></span>
     </div>
@@ -5582,6 +6377,7 @@ function pmenuHTML() {
       <button class="btn" data-act="codex" data-id="fans">牌型表</button>
       <button class="btn" data-act="codex" data-id="treasures">图鉴</button>
       <button class="btn" data-act="rules">玩法说明</button>
+      <button class="btn" data-act="achv">成就</button>
       <div class="pmute">${muteBtn()}</div>
       <button class="btn ghost" data-act="home">回到标题（存档留着）</button>
     </div>
@@ -5670,8 +6466,86 @@ fateStageHTML = (orig => function (st, n) {
 // ---- 手机上点按钮时浏览器会模拟「悬停」，别让悬停提示乱跳；手机只在点到带说明的字时才出提示 ----
 document.addEventListener('mouseover', e => { if (PHONE_ON) e.stopImmediatePropagation(); }, true);
 
+
+// ---- 2.25 集市：手机上一屏放下（不滚动） ----
+function phoneShopHTML() {
+  const nextKind = KINDS[G.idx];
+  const nb = nextKind.id === 'boss' ? bossById(G.bosses[G.round - 1]) : null;
+  const y = G.ying && YZ[G.ying];
+  const odds = rarityOdds();
+  const tre = (G.shop || []).map(id => `<div class="offer">${treasureCard(TREASURE[id], 'shop')}</div>`).join('') || '<p class="small pempty">货架空了，可以刷新。</p>';
+  const cons = (G.shopCons || []).map(id => `<div class="offer">${consCard(CONSUMABLE[id], 'shop')}</div>`).join('');
+  const ying = y ? `<div class="offer"><div class="tcard ying shop"><div class="tban"><span>${esc(y.name)}</span></div><div class="tframe"><div class="tslot"><span class="tglyph">营</span></div></div><div class="tkind">营造 · 永久</div><p class="teff">${kw(y.desc)}</p><button class="btn ${G.money >= YZ_PRICE ? 'red' : ''}" data-act="buy-ying" ${dis(G.money >= YZ_PRICE)}>盖 $${YZ_PRICE}</button></div></div>` : '';
+  const nMini = (G.shopCons || []).length + (y ? 1 : 0);
+  return `<div class="pshop">
+    <header class="ptop">
+      <div class="pbar1">
+        <button class="pmenu" data-act="pmenu" aria-label="菜单"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+        <div class="pttl"><b>集市</b><small>下一场：${G.round > ROUNDS ? '无尽 · ' : ''}第${CN[G.round] || G.round}回 ${nextKind.name} · 过关线 ${num(passLine(G.round, G.idx))}${nb ? ` · ${esc(nb.name)}坐庄` : ''}</small></div>
+        <span class="plamps">${lampsHTML()}</span>
+        <span class="pmoney"${tip(interestText())}><b id="money">${G.money}</b><small> +$${interest()}</small></span>
+      </div>
+      ${nb ? `<div class="pboss"><b>${esc(nb.name)}坐庄</b>${kw(nb.rule)}</div>` : ''}
+      <div class="prelic">${shelfHTML()}<i class="psep"></i>${consBarHTML()}</div>
+    </header>
+    <div class="poffers">
+    <div class="psec"><b>珍玩</b><small>白 ${odds[0]}% · 蓝 ${odds[1]}% · 金 ${odds[2]}% · 点自己的珍玩能看说明、卖掉</small></div>
+    <div class="offers pbig" style="--n:${Math.max(3, (G.shop || []).length)}">${tre}</div>
+    ${nMini ? `<div class="psec"><b>签 · 谱 · 营造</b><small>签最多带 ${consSlots()} 张；谱买下就读；营造每回一处</small></div>
+    <div class="offers consoffers pmini" style="--n:${Math.max(3, nMini)}">${cons}${ying}</div>` : ''}
+    </div>
+    <div class="pshopbar">
+      <button class="btn" data-act="codex" data-id="treasures">图鉴</button>
+      <button class="btn"${tip('刷新货架：重新随机摆珍玩和签谱。每刷一次价格 +$1，下一场重置。')} data-act="reroll" ${dis(G.money >= G.reroll)}>刷新 $${G.reroll}</button>
+      <button class="btn red" data-act="next-match">下一场</button>
+    </div>
+  </div>
+  ${ui.pmenu ? pmenuHTML() : ''}`;
+}
+viewShop = (orig => function () { return phoneSync() ? phoneShopHTML() : orig.apply(this, arguments); })(viewShop);
+
+
+// ---- 2.25 选人：手机上横着滑，停在哪张就选哪张 ----
+viewSelect = (orig => function () {
+  const h = orig.apply(this, arguments);
+  if (!phoneSync()) return h;
+  return h.replace('<div class="row center">', `<div class="cdots">${CHARACTERS.map(c => `<i data-id="${c.id}" class="${ui.pickChar === c.id ? 'on' : ''}"></i>`).join('')}</div><div class="row center">`);
+})(viewSelect);
+function selSnap() {
+  const row = app.querySelector('#app[data-screen=select] .chars, .chars'); if (!row || app.dataset.screen !== 'select' || !PHONE_ON) return;
+  const mid = row.getBoundingClientRect().left + row.clientWidth / 2;
+  let best = null, bd = 1e9;
+  row.querySelectorAll('.ccard').forEach(c => { const r = c.getBoundingClientRect(), d = Math.abs(r.left + r.width / 2 - mid); if (d < bd) { bd = d; best = c; } });
+  if (!best) return;
+  const id = best.dataset.id;
+  app.querySelectorAll('.cdots i').forEach(i => i.classList.toggle('on', i.dataset.id === id));
+  if (best.classList.contains('locked')) return;
+  if (ui.pickChar !== id) {
+    ui.pickChar = id;
+    row.querySelectorAll('.ccard').forEach(c => c.classList.toggle('on', c === best));
+    const st = app.querySelector('[data-act="start"]'); if (st) { st.removeAttribute('aria-disabled'); st.disabled = false; st.classList.remove('dis'); }
+  }
+}
+document.addEventListener('scroll', e => { if (e.target && e.target.classList && e.target.classList.contains('chars')) { clearTimeout(selSnap.t); selSnap.t = setTimeout(selSnap, 90); } }, true);
+layoutSeats = layoutSeats; // (占位：选人页不需要)
+render = (orig => function () {
+  const r = orig.apply(this, arguments);
+  if (PHONE_ON && app.dataset.screen === 'select') {
+    const row = app.querySelector('.chars'), on = row && (row.querySelector('.ccard.on') || null);
+    if (row && on && !selSnap.restoring) { selSnap.restoring = true; row.scrollLeft = on.offsetLeft - (row.clientWidth - on.clientWidth) / 2; requestAnimationFrame(() => { selSnap.restoring = false; }); }
+  }
+  return r;
+})(render);
+
 // ---- 每次重画前先判断是不是手机竖屏；转屏、改窗口大小时重画 ----
-render = (orig => function () { phoneSync(); return orig.apply(this, arguments); })(render);
+render = (orig => function () { phoneSync(); const r = orig.apply(this, arguments); if (PHONE_ON && app.dataset.screen === 'shop') fitShop(); return r; })(render);
+// 集市货多、屏幕矮时，货架整体缩小到放得下（不出现滚动）
+function fitShop() {
+  const el = app.querySelector('.poffers'); if (!el) return;
+  el.style.zoom = 1;
+  const need = el.scrollHeight, have = el.clientHeight;
+  if (need > have + 1) el.style.zoom = Math.max(0.6, have / need).toFixed(3);
+}
 window.addEventListener('resize', () => {
   const was = PHONE_ON;
   if (phoneSync() !== was && !ui.busy) render();
@@ -5681,4 +6555,5 @@ phoneSync();
 if (G && screen === 'run' && !ui.busy) { try { render(); } catch (e) { console.error(e); } }
 
 </script>
+
 </body></html>
