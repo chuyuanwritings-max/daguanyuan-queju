@@ -6219,7 +6219,7 @@ let CREDIT_T = null;
 function creditsHTML() {
   return `<div class="credits" data-act="credits-skip" role="dialog" aria-label="制作者名单">
     <div class="crimg"><img class="story" src="${imgSrc('credits_baochai')}" data-live="credits_baochai" alt="宝钗在柳树下笑"></div>
-    <p class="crtx">谢谢你玩我们的游戏<span>— Cc, Lxb</span></p>
+    <p class="crtx">谢谢你玩我们的游戏<span>— Cc, Lx</span></p>
   </div>`;
 }
 function creditsDone() { clearTimeout(CREDIT_T); if (!G || G.screen !== 'credits') return; G.screen = 'win'; save(); render(); }
