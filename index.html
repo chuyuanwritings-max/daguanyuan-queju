@@ -1396,6 +1396,29 @@ html.phone #app[data-screen=shop] .pshop .pmini .tkind{display:none}
 html.phone #app[data-screen=shop] .pshop .pmini .tframe{max-width:44px}
 html.phone #app[data-screen=shop] .pshop .offers[style*="--n:4"] .tframe{max-width:46px}
 html.phone .poffers{flex:1;min-height:0;overflow:hidden;display:flex;flex-direction:column;gap:4px}
+/* ===== 2.26 手机：集市点货看说明、字不截断、盖章和计分不互相踩 ===== */
+html.phone .pshop .offer[data-act=poffer]{cursor:pointer;-webkit-tap-highlight-color:transparent}
+html.phone .pshop .offer[data-act=poffer]:active .tcard{filter:brightness(1.12)}
+/* 签·谱·营造：改成一行一件（整行宽），说明完整显示，按钮只占右边一小块 */
+html.phone #app[data-screen=shop] .pshop .offers.pmini{grid-template-columns:minmax(0,1fr)!important;gap:5px}
+html.phone .pshop .pmini .tcard{grid-template-columns:36px minmax(0,1fr) auto!important;padding:5px 6px 5px 6px!important}
+html.phone .pshop .pmini .teff{display:block!important;-webkit-line-clamp:unset!important;overflow:visible!important;font-size:11.5px!important;line-height:1.35}
+html.phone .pshop .pmini .tcard .btn{font-size:13px!important;min-height:34px!important;height:34px;align-self:center;min-width:58px;padding:0 8px!important}
+html.phone .pshop .pmini .tcard .btn::after{content:none!important}
+html.phone .title-art .sub .en{white-space:nowrap;font-size:11px}
+html.phone #app[data-screen=shop] .pshop .pmini .tban{padding:0!important;margin:0!important;line-height:1.25;min-height:0;height:auto}
+html.phone #app[data-screen=shop] .pshop .pmini .tcard{min-height:0!important;row-gap:2px!important;padding:4px 6px!important}
+html.phone .pshop .tkind{white-space:nowrap}
+.sub .zh:empty{display:none}
+#toasts{position:fixed;left:50%;top:max(14px,env(safe-area-inset-top,0px));transform:translateX(-50%);z-index:75;display:flex;flex-direction:column;align-items:center;gap:8px;pointer-events:none;width:max-content;max-width:calc(100vw - 20px)}
+#toasts .toast{position:relative;left:auto;top:auto;transform:none;max-width:100%;box-sizing:border-box;animation:toast2 3.2s ease forwards}
+@keyframes toast2{0%{transform:translateY(-60%);opacity:0}10%,85%{transform:none;opacity:1}100%{transform:translateY(-40%);opacity:0}}
+.pofnote{margin:-4px 4px 0;color:#c9bfa8;line-height:1.5}
+.pofwrap .tcard.cons .tkind,.pofwrap .tcard.ying .tkind{margin-top:2px}
+.stamp span{white-space:nowrap;font-size:min(clamp(76px,22vw,150px),calc(82vw / var(--n,3)))}
+html.phone .pptotal.hid{display:block!important;visibility:hidden}
+html.phone .pptotal.t3{font-size:56px}html.phone .pptotal.t4{font-size:62px}
+.callout{max-width:calc(100vw - 16px)}
 </style>
 
 
@@ -2508,7 +2531,7 @@ RIGS["fate_xiangyun_5"] = {"w": 720, "h": 1080, "parts": [{"n": "handwear-l", "x
 RIGS["fate_xiangyun_6"] = {"w": 720, "h": 1080, "parts": [{"n": "neck", "x": 19, "y": 427, "w": 525, "h": 146}, {"n": "neckwear", "x": 0, "y": 525, "w": 187, "h": 82}, {"n": "back_hair", "x": 405, "y": 208, "w": 202, "h": 261}, {"n": "topwear", "x": 372, "y": 487, "w": 265, "h": 375}, {"n": "ears-r", "x": 409, "y": 414, "w": 34, "h": 46}, {"n": "face", "x": 111, "y": 329, "w": 433, "h": 222}, {"n": "eyebrow-r", "x": 408, "y": 387, "w": 41, "h": 14}, {"n": "nose", "x": 463, "y": 431, "w": 18, "h": 25}, {"n": "ears-l", "x": 537, "y": 395, "w": 30, "h": 51}, {"n": "eyebrow-l", "x": 474, "y": 376, "w": 51, "h": 11}, {"n": "eyelash-r", "x": 413, "y": 393, "w": 43, "h": 46}, {"n": "mouth", "x": 464, "y": 452, "w": 37, "h": 32}, {"n": "eyewhite-r", "x": 425, "y": 407, "w": 31, "h": 29}, {"n": "eyewhite-l", "x": 493, "y": 397, "w": 34, "h": 29}, {"n": "irides-r", "x": 431, "y": 407, "w": 22, "h": 30}, {"n": "irides-l", "x": 497, "y": 397, "w": 24, "h": 30}, {"n": "eyelash-l", "x": 484, "y": 391, "w": 49, "h": 21}, {"n": "front_hair", "x": 376, "y": 277, "w": 205, "h": 158}, {"n": "handwear-l", "x": 439, "y": 541, "w": 222, "h": 383}, {"n": "objects", "x": 283, "y": 406, "w": 74, "h": 115}, {"n": "handwear-r", "x": 205, "y": 424, "w": 226, "h": 285}], "k": {"breath": 4.4, "lift": 4.5, "chest": 0.006, "sway": 7.5, "tilt": 1.4, "nod": 1.0, "drift": 1.6, "earring": 8, "look": 2.2, "follow": 2.2, "hand": 1.8, "amp": 1, "hair": {"front_hair": 2.6, "back_hair": 2.0}, "hairRoot": {"front_hair": 0.3, "back_hair": 0.35}, "pivot": [328, 535], "chestTop": 487, "mid": 504, "waist": 862, "group": {"neck": "neck", "neckwear": "body", "back_hair": "hair", "topwear": "body", "ears-r": "head", "face": "head", "eyebrow-r": "brow", "nose": "head", "ears-l": "head", "eyebrow-l": "brow", "eyelash-r": "lash", "mouth": "head", "eyewhite-r": "eye", "eyewhite-l": "eye", "irides-r": "iris", "irides-l": "iris", "eyelash-l": "lash", "front_hair": "hair", "handwear-l": "hand", "objects": "hand", "handwear-r": "hand"}, "eye": {"r": [440.5, 431], "l": [510.0, 421]}}};
 RIGS["credits_baochai"] = {"w": 720, "h": 1080, "parts": [{"n": "back_hair", "x": 0, "y": 0, "w": 637, "h": 923}, {"n": "topwear", "x": 280, "y": 495, "w": 408, "h": 585}, {"n": "handwear", "x": 0, "y": 581, "w": 714, "h": 499}, {"n": "neck", "x": 451, "y": 384, "w": 141, "h": 194}, {"n": "ears-r", "x": 357, "y": 309, "w": 41, "h": 87}, {"n": "face", "x": 338, "y": 158, "w": 236, "h": 318}, {"n": "earwear", "x": 409, "y": 335, "w": 60, "h": 99}, {"n": "ears-l", "x": 551, "y": 291, "w": 61, "h": 101}, {"n": "eyewhite-r", "x": 361, "y": 307, "w": 48, "h": 35}, {"n": "eyewhite-l", "x": 476, "y": 293, "w": 64, "h": 40}, {"n": "irides-l", "x": 486, "y": 291, "w": 42, "h": 39}, {"n": "headwear", "x": 307, "y": 156, "w": 289, "h": 154}, {"n": "eyelash-l", "x": 457, "y": 278, "w": 107, "h": 39}, {"n": "irides-r", "x": 370, "y": 305, "w": 34, "h": 37}, {"n": "eyelash-r", "x": 340, "y": 298, "w": 75, "h": 48}, {"n": "eyebrow-r", "x": 332, "y": 279, "w": 77, "h": 20}, {"n": "nose", "x": 414, "y": 336, "w": 18, "h": 47}, {"n": "mouth", "x": 423, "y": 392, "w": 48, "h": 31}, {"n": "eyebrow-l", "x": 438, "y": 266, "w": 114, "h": 23}, {"n": "front_hair", "x": 237, "y": 106, "w": 371, "h": 262}], "k": {"breath": 4.4, "lift": 4.5, "chest": 0.006, "sway": 7.5, "tilt": 1.4, "nod": 1.0, "drift": 1.6, "earring": 8, "look": 2.2, "follow": 2.2, "hand": 1.8, "amp": 1, "hair": {"front_hair": 2.6, "back_hair": 2.0}, "hairRoot": {"front_hair": 0.3, "back_hair": 0.35}, "pivot": [456, 454], "chestTop": 495, "mid": 484, "waist": 1080, "group": {"back_hair": "hair", "topwear": "body", "handwear": "hand", "neck": "neck", "ears-r": "head", "face": "head", "earwear": "ear", "ears-l": "head", "eyewhite-r": "eye", "eyewhite-l": "eye", "irides-l": "iris", "headwear": "head", "eyelash-l": "lash", "irides-r": "iris", "eyelash-r": "lash", "eyebrow-r": "brow", "nose": "head", "mouth": "head", "eyebrow-l": "brow", "front_hair": "hair"}, "eye": {"r": [385.0, 336], "l": [508.0, 326]}}};
 
-const GAME_VERSION = '2.25';
+const GAME_VERSION = '2.26';
 'use strict';
 // ================= config =================
 const ROUNDS = 6;
@@ -2643,14 +2666,20 @@ function popAt(target, text, cls = '') {
   fx.appendChild(d); setTimeout(() => d.remove(), 950);
 }
 function stamp(text, cls = '') {
+  // 一次只留一个盖章，不叠在一起；字按长度缩，永远一行、不出屏
+  fx.querySelectorAll('.stamp').forEach(x => x.remove());
   const d = document.createElement('div');
-  d.className = 'stamp ' + cls; d.innerHTML = `<span>${esc(text)}</span>`;
+  d.className = 'stamp ' + cls; d.innerHTML = `<span>${esc(text)}</span>`; d.style.setProperty('--n', Math.max(3, [...String(text)].length));
   fx.appendChild(d); SFX.stamp(); setTimeout(() => d.remove(), 1150);
 }
 function toast(title, sub) {
+  // 同时来好几条时一条接一条往下排，不叠在一起；最多留 3 条
+  let box = document.getElementById('toasts');
+  if (!box) { box = document.createElement('div'); box.id = 'toasts'; fx.appendChild(box); }
+  while (box.children.length >= 3) box.firstChild.remove();
   const d = document.createElement('div');
   d.className = 'toast'; d.innerHTML = `<b>${esc(title)}</b><span>${esc(sub)}</span>`;
-  fx.appendChild(d); SFX.chime(); setTimeout(() => d.remove(), 3200);
+  box.appendChild(d); SFX.chime(); setTimeout(() => d.remove(), 3200);
 }
 async function fly(fromRect, toEl, dur = 260) {
   if (RM || !fromRect || !toEl) return;
@@ -3728,7 +3757,7 @@ const muteBtn = () => `<button class="chip mute" data-act="mute" aria-label="${S
 function viewTitle() {
   const saved = G || loadSave();
   const canResume = saved && saved.v === 2 && !['over', 'win'].includes(saved.screen);
-  return `<div class="title-art">${scene('title')}<div class="logo"><h1>大观园雀局</h1></div>${subBar('摸、打、亮、胡，替她们改一回命', 'Grand View Garden Mahjong · Beta · ' + GAME_VERSION)}</div>
+  return `<div class="title-art">${scene('title')}<div class="logo"><h1>大观园雀局</h1></div>${subBar('', 'Grand View Garden Mahjong · Beta · ' + GAME_VERSION)}</div>
   <p class="lede">一人一局的麻将肉鸽。凑成的面子可以亮出来立刻得分，亮的分够了就能收手过关；胡牌则把所有筹码乘上番数。每打过一位坐庄的，人物的命运就转一次。</p>
   <div class="row center">
     <button class="btn red" data-act="go-select">开新的一局</button>
@@ -5343,7 +5372,14 @@ function callout(s, lvl) {
   const r = (app.querySelector('.ppbox') || pane).getBoundingClientRect();
   c.className = `callout k-${s.kind} L${lvl}`;
   c.innerHTML = `<div class="coimg">${srcIcon(s)}</div><div class="cotx"><small>${esc(srcName(s))}</small><b>${effText(s)}</b></div>`;
-  c.style.left = (r.left + r.width / 2) + 'px'; c.style.top = Math.max(8, r.top - 8) + 'px';
+  // 手机：触发卡盖在「对手 + 比分」那一块上（计分时用不着），不挡牌桌上正在算的牌和筹码×番
+  const relic = PHONE_ON && app.querySelector('.ptop .prelic');
+  const top = relic ? relic.getBoundingClientRect().top - 6 : r.top - 8;
+  c.style.left = (PHONE_ON ? innerWidth / 2 : r.left + r.width / 2) + 'px'; c.style.top = Math.max(8, top) + 'px';
+  // 放大以后也不能出屏
+  const want = [0.9, 1, 1.12, 1.25][lvl] || 1;
+  c.style.setProperty('--cs', Math.min(want, (innerWidth - 16) / Math.max(1, c.offsetWidth)).toFixed(3));
+  if (relic) c.style.setProperty('--cs', Math.min(+c.style.getPropertyValue('--cs'), (top - 8) / Math.max(1, c.offsetHeight)).toFixed(3));
   void c.offsetWidth; c.classList.add('on');
   clearTimeout(callout.t); callout.t = setTimeout(() => c.classList.remove('on'), Math.max(500, 1500 / SPEED));
 }
@@ -5449,8 +5485,8 @@ async function doPlay() {
   // 够分了：到过关线、又领先三家，立刻过关，剩下的亮牌每次 +$1
   if (m.score >= lineOf() && m.score > oppMax()) {
     m.earlyLeft = m.plays; m.table = []; m.phase = 'discard'; save(); render();
-    stamp('过关！', 'gold'); SFX.fanfare(); bigShake();
-    toast('够分了，提前过关', m.plays ? `过关线 ${fmt(lineOf())}，你 ${fmt(m.score)}。省下 ${m.plays} 次亮牌，每次 +$1。` : `过关线 ${fmt(lineOf())}，你 ${fmt(m.score)}。`);
+    if (tier < 3) { stamp('过关！', 'gold'); SFX.fanfare(); bigShake(); }
+    // 「够分提前过关、省下几次亮牌」结算页上都写着，这里不再弹提示
     await sleep(1500);
     return endMatch2(true);
   }
@@ -6181,7 +6217,7 @@ async function shareCard(info) {
   const serif = '"Noto Serif SC","Songti SC","STSong",serif';
   x.textAlign = 'center';
   x.fillStyle = ivory; x.font = `900 64px ${serif}`; x.fillText('大观园雀局', W / 2, 110);
-  x.fillStyle = 'rgba(241,229,202,.6)'; x.font = `400 30px ${serif}`; x.fillText('摸、打、亮、胡，替她们改一回命', W / 2, 160);
+  x.fillStyle = 'rgba(241,229,202,.6)'; x.font = `400 30px ${serif}`; x.fillText(`「${myName() || '无名氏'}」`, W / 2, 160);
   x.strokeStyle = tierCol; x.lineWidth = 4; x.strokeRect(60, 820, W - 120, 380);
   x.fillStyle = tierCol; x.font = `700 44px ${serif}`; x.fillText(info.head, W / 2, 900);
   let fs = 132; x.font = `900 ${fs}px ${serif}`; while (x.measureText(info.big).width > W - 180 && fs > 50) { fs -= 6; x.font = `900 ${fs}px ${serif}`; }
@@ -6414,7 +6450,10 @@ CORE2_ACT = (orig => function (a, b, id) {
     case 'skill-info': if (!PHONE_ON) return true; ui.skillInfo = true; SFX.select(); render(); return true;
     case 'skill-close': ui.skillInfo = false; render(); return true;
     case 'sheet-stay': return true;
+    case 'poffer': ui.poffer = id; SFX.select(); render(); return true;
+    case 'poffer-close': ui.poffer = null; render(); return true;
   }
+  if (ui.poffer) ui.poffer = null;
   if (ui.pmenu && ['codex', 'rules', 'home'].includes(a)) ui.pmenu = false;
   return orig.apply(this, arguments);
 })(CORE2_ACT);
@@ -6473,9 +6512,10 @@ function phoneShopHTML() {
   const nb = nextKind.id === 'boss' ? bossById(G.bosses[G.round - 1]) : null;
   const y = G.ying && YZ[G.ying];
   const odds = rarityOdds();
-  const tre = (G.shop || []).map(id => `<div class="offer">${treasureCard(TREASURE[id], 'shop')}</div>`).join('') || '<p class="small pempty">货架空了，可以刷新。</p>';
-  const cons = (G.shopCons || []).map(id => `<div class="offer">${consCard(CONSUMABLE[id], 'shop')}</div>`).join('');
-  const ying = y ? `<div class="offer"><div class="tcard ying shop"><div class="tban"><span>${esc(y.name)}</span></div><div class="tframe"><div class="tslot"><span class="tglyph">营</span></div></div><div class="tkind">营造 · 永久</div><p class="teff">${kw(y.desc)}</p><button class="btn ${G.money >= YZ_PRICE ? 'red' : ''}" data-act="buy-ying" ${dis(G.money >= YZ_PRICE)}>盖 $${YZ_PRICE}</button></div></div>` : '';
+  // 手机卡片上：稀有度靠边框颜色看，类别只留后半；谱的按钮也写成「买」，省地方。点卡片任何地方（按钮以外）弹出完整说明。
+  const tre = (G.shop || []).map(id => `<div class="offer" data-act="poffer" data-id="t:${id}">${treasureCard(TREASURE[id], 'shop').replace(/<div class="tkind">(白牌|蓝牌|金牌) · /, '<div class="tkind">')}</div>`).join('') || '<p class="small pempty">货架空了，可以刷新。</p>';
+  const cons = (G.shopCons || []).map(id => `<div class="offer" data-act="poffer" data-id="c:${id}">${consCard(CONSUMABLE[id], 'shop').replace('>买下就读 $', '>买 $')}</div>`).join('');
+  const ying = y ? `<div class="offer" data-act="poffer" data-id="y:${G.ying}"><div class="tcard ying shop"><div class="tban"><span>${esc(y.name)}</span></div><div class="tframe"><div class="tslot"><span class="tglyph">营</span></div></div><div class="tkind">营造 · 永久</div><p class="teff">${kw(y.desc)}</p><button class="btn ${G.money >= YZ_PRICE ? 'red' : ''}" data-act="buy-ying" ${dis(G.money >= YZ_PRICE)}>盖 $${YZ_PRICE}</button></div></div>` : '';
   const nMini = (G.shopCons || []).length + (y ? 1 : 0);
   return `<div class="pshop">
     <header class="ptop">
@@ -6500,7 +6540,27 @@ function phoneShopHTML() {
       <button class="btn red" data-act="next-match">下一场</button>
     </div>
   </div>
-  ${ui.pmenu ? pmenuHTML() : ''}`;
+  ${ui.pmenu ? pmenuHTML() : ''}${ui.poffer ? pofferHTML() : ''}`;
+}
+// 集市里点一件货：从底下弹出完整说明 + 买的按钮（和点自己的珍玩一个样子）
+function pofferHTML() {
+  const [k, id] = String(ui.poffer).split(':');
+  let card = '', btn = '';
+  const pick = h => (h.match(/<button[^>]*data-act="buy[^"]*"[\s\S]*?<\/button>/) || [''])[0];
+  if (k === 't' && TREASURE[id] && (G.shop || []).includes(id)) {
+    card = treasureCard(TREASURE[id], 'info'); btn = pick(treasureCard(TREASURE[id], 'shop'));
+    if (G.treasures.length >= maxSlots()) card += `<p class="small pofnote">珍玩栏满了（${maxSlots()} 格），先点自己的珍玩卖掉一件。</p>`;
+  } else if (k === 'c' && CONSUMABLE[id] && (G.shopCons || []).includes(id)) {
+    const c = CONSUMABLE[id];
+    card = consCard(c, 'info'); btn = pick(consCard(c, 'shop')).replace('>买下就读 $', '>买 $');
+    card += `<p class="small pofnote">${c.type === 'pu' ? '谱：买下立刻读，这种牌型永久升一级。' : `签：带在身上，牌局里轮到你出手时点一下使用。最多带 ${consSlots()} 张。`}</p>`;
+  } else if (k === 'y' && G.ying === id && YZ[id]) {
+    const y = YZ[id];
+    card = `<div class="tcard ying info"><div class="tban"><span>${esc(y.name)}</span></div><div class="tframe"><div class="tslot"><span class="tglyph">营</span></div></div><div class="tkind">营造 · 永久</div><p class="teff">${kw(y.desc)}</p></div><p class="small pofnote">营造：盖好以后这一局一直有效。每回集市只来一处。</p>`;
+    btn = `<button class="btn ${G.money >= YZ_PRICE ? 'red' : ''}" data-act="buy-ying" ${dis(G.money >= YZ_PRICE)}>盖 $${YZ_PRICE}</button>`;
+  } else return '';
+  return `<div class="ov" data-act="poffer-close" role="dialog"><div class="infowrap pofwrap" data-act="sheet-stay">${card}
+  <div class="row center"><button class="btn" data-act="poffer-close">关闭</button>${btn}</div></div></div>`;
 }
 viewShop = (orig => function () { return phoneSync() ? phoneShopHTML() : orig.apply(this, arguments); })(viewShop);
 
